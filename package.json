@@ -1,0 +1,22 @@
+{
+  "name": "k2-xperiences-automation",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "npx playwright test --reporter=allure-playwright",
+    "test:chrome": "playwright test e2e --project=chromium",
+    "test:firefox": "playwright test e2e --project=firefox",
+    "test:webkit": "playwright test e2e --project=webkit",
+    "allure:generate": "npx allure-commandline generate allure-results --clean -o allure-report",
+    "allure:open": "npx allure-commandline serve allure-results"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@playwright/test": "^1.51.1",
+    "@types/node": "^22.13.14",
+    "allure-playwright": "^3.2.1"
+  }
+}
