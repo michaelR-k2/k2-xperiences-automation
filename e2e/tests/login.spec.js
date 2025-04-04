@@ -6,7 +6,7 @@ let loginPage;
 let basePage;
 
 test.beforeEach(async ({ page, context }) => {
-  await allure.epic("Login e2e");
+  await allure.epic("Login - Casos de prueba relacionados a inicio de Sesión");
   await allure.suite("Login");
   await allure.tags("e2e", "login");
   loginPage = new LoginPage(page);
@@ -20,7 +20,7 @@ test.beforeEach(async ({ page, context }) => {
   );
 });
 
-test("@login - login to xprecientes", async ({ page }) => {
+test("@login - Verificación de inicio de sesion con usuario existente", async ({ page }) => {
   await allure.step(`Step 2 - Validacion con Usuario y contraseña Validos`, async () => {
     await page.getByRole("textbox", { name: "Email" }).click();
     await page.getByRole("textbox", { name: "Email" }).fill(process.env.USER_EMAIL);
