@@ -1,2 +1,3 @@
 "DESCRIPTION","DURATION IN MS","NAME","PARENT SUITE","START TIME","STATUS","STOP TIME","SUB SUITE","SUITE","TEST CLASS","TEST METHOD"
-"","2555","@login - login to xprecientes","chromium","Fri Apr 04 16:47:49 UTC 2025","passed","Fri Apr 04 16:47:52 UTC 2025","","Login","",""
+"","3893","@login - Verificación de inicio de sesion con usuario existente","firefox","Fri Apr 04 16:57:50 UTC 2025","passed","Fri Apr 04 16:57:54 UTC 2025","","Login","",""
+"","2937","@login - Verificación de inicio de sesion con usuario existente","chromium","Fri Apr 04 16:57:46 UTC 2025","passed","Fri Apr 04 16:57:49 UTC 2025","","Login","",""
