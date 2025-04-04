@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "npx playwright test --reporter=allure-playwright",
+    "test:e2e:login": "npx playwright test --project chromium --grep @login",
     "test:chrome": "playwright test e2e --project=chromium",
     "test:firefox": "playwright test e2e --project=firefox",
     "test:webkit": "playwright test e2e --project=webkit",
@@ -15,8 +16,12 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@faker-js/faker": "^9.6.0",
     "@playwright/test": "^1.51.1",
     "@types/node": "^22.13.14",
     "allure-playwright": "^3.2.1"
+  },
+  "dependencies": {
+    "dotenv": "^16.4.7"
   }
 }

@@ -1,5 +1,6 @@
 // @ts-check
 import { defineConfig, devices } from "@playwright/test";
+require('dotenv').config();
 
 /**
  * Read environment variables from file.
@@ -12,10 +13,15 @@ import { defineConfig, devices } from "@playwright/test";
 /**
  * @see https://playwright.dev/docs/test-configuration
  */
-export default defineConfig({
+module.exports = defineConfig({
   /* Default timeout for Playwright */
   timeout: 5 * 60 * 1000,
-  testDir: "./e2e",
+  /* Run initial setup for playwright */
+  globalSetup: './e2e/support/setup/auth.js',
+  /* Run final teardown for playwright */
+  globalTeardown: './e2e/support/teardown/teardown.js',
+  /* Test path for playwright to load the test */
+  testDir: "./e2e/tests",
   /* Run tests in files in parallel */
   fullyParallel: true,
   /* Fail the build on CI if you accidentally left test.only in the source code. */
@@ -31,6 +37,7 @@ export default defineConfig({
     headless: process.env.CI ? true : false,
     /* Base URL to use in actions like `await page.goto('/')`. */
     baseURL: process.env.BASEURL,
+    storageState: 'storageState.json',
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
     trace: process.env.CI ? "retain-on-failure" : "on",
     /* Collect videos for each test */
@@ -42,6 +49,7 @@ export default defineConfig({
     {
       name: "chromium",
       use: { ...devices["Desktop Chrome"] },
+      testDir: './e2e/tests',
     },
     /*
     {
