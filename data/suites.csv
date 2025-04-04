@@ -1,3 +1,2 @@
 "DESCRIPTION","DURATION IN MS","NAME","PARENT SUITE","START TIME","STATUS","STOP TIME","SUB SUITE","SUITE","TEST CLASS","TEST METHOD"
-"","427","has title","chromium","Thu Mar 27 21:05:14 UTC 2025","passed","Thu Mar 27 21:05:14 UTC 2025","","example.spec.js","",""
-"","528","get started link","chromium","Thu Mar 27 21:05:14 UTC 2025","passed","Thu Mar 27 21:05:15 UTC 2025","","example.spec.js","",""
+"","2555","@login - login to xprecientes","chromium","Fri Apr 04 16:47:49 UTC 2025","passed","Fri Apr 04 16:47:52 UTC 2025","","Login","",""
