@@ -1,9 +1,14 @@
 import { test, expect } from "@playwright/test";
 import { allure } from "allure-playwright";
+import { faker } from "@faker-js/faker";
 import { BasePage, LoginPage } from "../pages";
 
 let loginPage;
 let basePage;
+let user = { 
+  email: faker.internet.email(),
+  password: faker.internet.password({ length: 12, memorable: true }),
+};
 
 test.beforeEach(async ({ page, context }) => {
   await allure.epic("Login - Casos de prueba relacionados a inicio de Sesión");
@@ -22,13 +27,41 @@ test.beforeEach(async ({ page, context }) => {
 
 test("@login - Verificación de inicio de sesion con usuario existente", async ({ page }) => {
   await allure.step(`Step 2 - Validacion con Usuario y contraseña Validos`, async () => {
-    await page.getByRole("textbox", { name: "Email" }).click();
-    await page.getByRole("textbox", { name: "Email" }).fill(process.env.USER_EMAIL);
-    await page.getByRole("textbox", { name: "Password" }).click();
-    await page.getByRole("textbox", { name: "Password" }).fill(process.env.USER_PASSWORD);
-    await page.getByRole("button", { name: "Submit" }).click();
-    await expect(page.getByRole("main")).toContainText("Transactions");
-    await expect(page.getByRole("main")).toContainText("Recent Sales");
+    await loginPage.loginToXperiences();
+    await page.waitForSelector('a[href*="/dashboard"]', { state: 'visible' });
+    expect(await basePage.getCurrentUrl()).toContain(`${process.env.BASEURL}/dashboard`);
+  });
+});
+
+test("@login - Verificación de inicio de sesion con usuario inexistente/invalido", async ({ page }) => {
+  await allure.step(`Step 2 - Validacion con Email incorrecto`, async () => {
+    await loginPage.loginWithInvalidEmail(user);
+    await expect(loginPage.errorMessage).toBeVisible();
+    await expect(loginPage.errorMessage).toHaveText("These credentials do not match our records.");
+  });
+});
+
+test("@login - Verificación de inicio de sesion con usuario existente pero contraseña incorrecta", async ({ page }) => {
+  await allure.step(`Step 2 - Validacion con COntraseña Incorrecta`, async () => {
+    await loginPage.loginWithInvalidPassword(user);
+    await expect(loginPage.errorMessage).toBeVisible();
+    await expect(loginPage.errorMessage).toHaveText("These credentials do not match our records.");
+  });
+});
+
+test("@login - Verificación de mensajes para valores requeridos (Email)", async ({ page }) => {
+  await allure.step(`Step 2 - Validacion de campos vacios para el Email`, async () => {
+    await loginPage.loginWithEmptyEmail(user);
+    await expect(loginPage.errorMessage).toBeVisible();
+    await expect(loginPage.errorMessage).toHaveText("The email field is required.");
+  });
+});
+
+test("@login - Verificación de mensajes para valores requeridos (Password)", async ({ page }) => {
+  await allure.step(`Step 2 - Validacion de campos vacios para la contraseña`, async () => {
+    await loginPage.loginWithEmptyPassword(user);
+    await expect(loginPage.errorMessage).toBeVisible();
+    await expect(loginPage.errorMessage).toHaveText("The password field is required.");
   });
 });
 
