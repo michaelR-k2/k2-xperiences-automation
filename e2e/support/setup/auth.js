@@ -20,7 +20,7 @@ async function globalSetup() {
     if (!response.ok()) {
         throw new Error(`Login failed with status ${response.status()}`);
     } else {
-        console.info("Usuario autenticado Exitosamente ✅");
+        console.info("Usuario autenticado Exitosamente 🔼");
     }
 
     const cookies = await context.storageState();

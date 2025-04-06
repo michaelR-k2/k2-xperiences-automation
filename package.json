@@ -1,10 +1,11 @@
 {
   "name": "k2-xperiences-automation",
   "version": "1.0.0",
-  "description": "",
+  "description": "Automatización del Entorno de Desarrollo del proyecto k2 Xperiences",
   "main": "index.js",
   "scripts": {
     "test": "npx playwright test --reporter=allure-playwright",
+    "test:e2e:dashboard": "npx playwright test --project chromium --grep @dashboard",
     "test:e2e:login": "npx playwright test --project chromium --grep @login",
     "test:chrome": "playwright test e2e --project=chromium",
     "test:firefox": "playwright test e2e --project=firefox",
