@@ -12,6 +12,7 @@ let user = {
 
 test.beforeEach(async ({ page, context }) => {
   await allure.epic("Login - Casos de prueba relacionados a inicio de Sesión");
+  await allure.feature('Inicio de sesión');
   await allure.suite("Login");
   await allure.tags("e2e", "login");
   loginPage = new LoginPage(page);
@@ -26,6 +27,7 @@ test.beforeEach(async ({ page, context }) => {
 });
 
 test("@login - Verificación de inicio de sesion con usuario existente", async ({ page }) => {
+  await allure.story('El usuario Inicia sesion de manera exitosa');
   await allure.step(`Step 2 - Validacion con Usuario y contraseña Validos`, async () => {
     await loginPage.loginToXperiences();
     await page.waitForSelector('a[href*="/dashboard"]', { state: 'visible' });
@@ -34,6 +36,7 @@ test("@login - Verificación de inicio de sesion con usuario existente", async (
 });
 
 test("@login - Verificación de inicio de sesion con usuario inexistente/invalido", async ({ page }) => {
+  await allure.story('El Email ingresado para el inicio de sesion es incorrecto');
   await allure.step(`Step 2 - Validacion con Email incorrecto`, async () => {
     await loginPage.loginWithInvalidEmail(user);
     await expect(loginPage.errorMessage).toBeVisible();
@@ -42,7 +45,8 @@ test("@login - Verificación de inicio de sesion con usuario inexistente/invalid
 });
 
 test("@login - Verificación de inicio de sesion con usuario existente pero contraseña incorrecta", async ({ page }) => {
-  await allure.step(`Step 2 - Validacion con COntraseña Incorrecta`, async () => {
+  await allure.story('La contraseña Ingresada en el proceso de inicio de Sesion no es correcta');
+  await allure.step(`Step 2 - Validacion con Contraseña Incorrecta`, async () => {
     await loginPage.loginWithInvalidPassword(user);
     await expect(loginPage.errorMessage).toBeVisible();
     await expect(loginPage.errorMessage).toHaveText("These credentials do not match our records.");
@@ -50,6 +54,7 @@ test("@login - Verificación de inicio de sesion con usuario existente pero cont
 });
 
 test("@login - Verificación de mensajes para valores requeridos (Email)", async ({ page }) => {
+  await allure.story('Validación de Inicio de sesion con el campo de Email Vacio');
   await allure.step(`Step 2 - Validacion de campos vacios para el Email`, async () => {
     await loginPage.loginWithEmptyEmail(user);
     await expect(loginPage.errorMessage).toBeVisible();
@@ -58,6 +63,7 @@ test("@login - Verificación de mensajes para valores requeridos (Email)", async
 });
 
 test("@login - Verificación de mensajes para valores requeridos (Password)", async ({ page }) => {
+  await allure.story('Validación de Inicio de sesion con el campo de Contraseña Vacia');
   await allure.step(`Step 2 - Validacion de campos vacios para la contraseña`, async () => {
     await loginPage.loginWithEmptyPassword(user);
     await expect(loginPage.errorMessage).toBeVisible();
