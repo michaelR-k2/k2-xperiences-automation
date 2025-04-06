@@ -1,2 +1,6 @@
 "BROKEN","EPIC","FAILED","FEATURE","PASSED","SKIPPED","STORY","UNKNOWN"
-"0","Login - Casos de prueba relacionados a inicio de Sesión","0","","10","0","","0"
+"0","Login - Casos de prueba relacionados a inicio de Sesión","0","Inicio de sesión","2","0","Validación de Inicio de sesion con el campo de Contraseña Vacia","0"
+"0","Login - Casos de prueba relacionados a inicio de Sesión","0","Inicio de sesión","2","0","El usuario Inicia sesion de manera exitosa","0"
+"0","Login - Casos de prueba relacionados a inicio de Sesión","0","Inicio de sesión","2","0","Validación de Inicio de sesion con el campo de Email Vacio","0"
+"0","Login - Casos de prueba relacionados a inicio de Sesión","0","Inicio de sesión","2","0","El Email ingresado para el inicio de sesion es incorrecto","0"
+"0","Login - Casos de prueba relacionados a inicio de Sesión","0","Inicio de sesión","2","0","La contraseña Ingresada en el proceso de inicio de Sesion no es correcta","0"
