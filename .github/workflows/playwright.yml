@@ -46,7 +46,8 @@ jobs:
     - name: Copy previous history (Si existe)
       run: |
         if [ -d allure-history ]; then
-          cp -r allure-history allure-results/history
+          mkdir -p allure-results/history
+          cp -r allure-history/* allure-results/history/
         fi
 
     - name: Run Playwright tests
