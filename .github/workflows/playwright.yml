@@ -5,6 +5,7 @@ on:
     branches: [main, master]
   pull_request:
     branches: [main, master]
+  workflow_dispatch:
 
 jobs:
   test:
@@ -46,7 +47,8 @@ jobs:
     - name: Copy previous history (Si existe)
       run: |
         if [ -d allure-history ]; then
-          cp -r allure-history allure-results/history
+          mkdir -p allure-results/history
+          cp -r allure-history/* allure-results/history/
         fi
 
     - name: Run Playwright tests
