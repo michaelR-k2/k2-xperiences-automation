@@ -16,7 +16,6 @@ export default class TripUsersPage {
   async getUserCount() {
     await this.page.waitForSelector("table tbody tr", {state: "attached"});
     return await this.allUsers.count();
-    
   }
   async getTableHeaders() {
     await this.tableHeaders.first().waitFor({ state: "visible" });
