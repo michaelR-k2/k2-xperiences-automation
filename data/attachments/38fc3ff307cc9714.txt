@@ -1,0 +1,506 @@
+# Instructions
+
+- Following Playwright test failed.
+- Explain why, be concise, respect Playwright best practices.
+- Provide a snippet of code with the fix, if possible.
+
+# Test info
+
+- Name: @vendors - Verificación del flujo de Creación de un Proveedor nuevo
+- Location: /home/runner/work/k2-xperiences-automation/k2-xperiences-automation/e2e/tests/modules/vendors/vendors.spec.js:53:5
+
+# Error details
+
+```
+Error: Timed out 5000ms waiting for expect(locator).toHaveText(expected)
+
+Locator: locator('tbody tr td:nth-child(3)').filter({ hasText: 'Wilson Jones' })
+Expected string: "Wilson Jones"
+Received: <element(s) not found>
+Call log:
+  - expect.toHaveText with timeout 5000ms
+  - waiting for locator('tbody tr td:nth-child(3)').filter({ hasText: 'Wilson Jones' })
+
+    at /home/runner/work/k2-xperiences-automation/k2-xperiences-automation/e2e/tests/modules/vendors/vendors.spec.js:61:72
+```
+
+# Page snapshot
+
+```yaml
+- complementary:
+  - img "Logo_K2_Travel"
+  - button:
+    - img
+  - navigation:
+    - link "Dashboard":
+      - img
+      - text: Dashboard
+    - link "Requests":
+      - img
+      - text: Requests
+    - link "Projects":
+      - img
+      - text: Projects
+    - link "Experiences":
+      - img
+      - text: Experiences
+    - link "Vendors":
+      - img
+      - text: Vendors
+    - link "Trip Users":
+      - img
+      - text: Trip Users
+    - link "File System":
+      - img
+      - text: File System
+  - button:
+    - img
+- main:
+  - heading "Vendors (15)" [level=2]
+  - button "Create new vendor"
+  - table:
+    - rowgroup:
+      - row "ID Vendor Created At Pick a date Status Location Services Email Phone Website":
+        - cell
+        - cell "ID":
+          - text: ID
+          - button:
+            - img
+          - textbox
+        - cell "Vendor":
+          - text: Vendor
+          - button:
+            - img
+          - textbox
+        - cell "Created At Pick a date":
+          - text: Created At
+          - button:
+            - img
+          - button "Pick a date":
+            - text: Pick a date
+            - img
+        - cell "Status":
+          - text: Status
+          - button:
+            - img
+          - textbox
+        - cell "Location":
+          - text: Location
+          - button:
+            - img
+          - textbox
+        - cell "Services":
+          - text: Services
+          - button:
+            - img
+          - textbox
+        - cell "Email":
+          - text: Email
+          - button:
+            - img
+          - textbox
+        - cell "Phone":
+          - text: Phone
+          - button:
+            - img
+          - textbox
+        - cell "Website":
+          - text: Website
+          - button:
+            - img
+          - textbox
+    - rowgroup:
+      - row "Toggle menu 16 Francis Prosacco 13/04/2025 Active Argentina Insurance and Assistance, Technology and Comunication, Logistics kaya_herzog@yahoo.com +3416612516 https://helpless-opera.biz":
+        - cell "Toggle menu":
+          - button "Toggle menu":
+            - img
+            - text: Toggle menu
+        - cell "16"
+        - cell "Francis Prosacco"
+        - cell "13/04/2025"
+        - cell "Active"
+        - cell "Argentina"
+        - cell "Insurance and Assistance, Technology and Comunication, Logistics"
+        - cell "kaya_herzog@yahoo.com"
+        - cell "+3416612516"
+        - cell "https://helpless-opera.biz"
+      - row "Toggle menu 15 Jenna Rosenbaum 13/04/2025 Active Guatemala Tour, Wellness and Spa, Technology and Comunication, Others, Host, Logistics, Photography and Video kathryn_pouros-ohara@hotmail.com +866018007 https://qualified-possession.org":
+        - cell "Toggle menu":
+          - button "Toggle menu":
+            - img
+            - text: Toggle menu
+        - cell "15"
+        - cell "Jenna Rosenbaum"
+        - cell "13/04/2025"
+        - cell "Active"
+        - cell "Guatemala"
+        - cell "Tour, Wellness and Spa, Technology and Comunication, Others, Host, Logistics, Photography and Video"
+        - cell "kathryn_pouros-ohara@hotmail.com"
+        - cell "+866018007"
+        - cell "https://qualified-possession.org"
+      - row "Toggle menu 14 Erin Wilkinson 13/04/2025 Active Guyana Others willow_towne@yahoo.com +7437849587912 https://puny-appliance.net":
+        - cell "Toggle menu":
+          - button "Toggle menu":
+            - img
+            - text: Toggle menu
+        - cell "14"
+        - cell "Erin Wilkinson"
+        - cell "13/04/2025"
+        - cell "Active"
+        - cell "Guyana"
+        - cell "Others"
+        - cell "willow_towne@yahoo.com"
+        - cell "+7437849587912"
+        - cell "https://puny-appliance.net"
+      - row "Toggle menu 13 Dianna Gerlach II 13/04/2025 Active Argentina Technology and Comunication, Flight, Others, Accommodation, Transportation kamille35@yahoo.com +4077435594 https://perky-toothbrush.net":
+        - cell "Toggle menu":
+          - button "Toggle menu":
+            - img
+            - text: Toggle menu
+        - cell "13"
+        - cell "Dianna Gerlach II"
+        - cell "13/04/2025"
+        - cell "Active"
+        - cell "Argentina"
+        - cell "Technology and Comunication, Flight, Others, Accommodation, Transportation"
+        - cell "kamille35@yahoo.com"
+        - cell "+4077435594"
+        - cell "https://perky-toothbrush.net"
+      - row "Toggle menu 12 Dr Everett Friesen 13/04/2025 Active Paraguay Host, Flight bradford37@hotmail.com +383835782917359 https://unwritten-pasta.org/":
+        - cell "Toggle menu":
+          - button "Toggle menu":
+            - img
+            - text: Toggle menu
+        - cell "12"
+        - cell "Dr Everett Friesen"
+        - cell "13/04/2025"
+        - cell "Active"
+        - cell "Paraguay"
+        - cell "Host, Flight"
+        - cell "bradford37@hotmail.com"
+        - cell "+383835782917359"
+        - cell "https://unwritten-pasta.org/"
+      - row "Toggle menu 11 Luis Schmidt 13/04/2025 Active Finland Accommodation, Restaurant / Food, Flight, Tour, Insurance and Assistance, Photography and Video, Transportation, Host, Entertainment, Technology and Comunication, Wellness and Spa, Others chase_rosenbaum3@hotmail.com +54854386293365 https://our-dash.biz/":
+        - cell "Toggle menu":
+          - button "Toggle menu":
+            - img
+            - text: Toggle menu
+        - cell "11"
+        - cell "Luis Schmidt"
+        - cell "13/04/2025"
+        - cell "Active"
+        - cell "Finland"
+        - cell "Accommodation, Restaurant / Food, Flight, Tour, Insurance and Assistance, Photography and Video, Transportation, Host, Entertainment, Technology and Comunication, Wellness and Spa, Others"
+        - cell "chase_rosenbaum3@hotmail.com"
+        - cell "+54854386293365"
+        - cell "https://our-dash.biz/"
+      - row "Toggle menu 10 Amber Cummerata Jr 13/04/2025 Active Uganda Tour, Logistics, Entertainment, Accommodation, Flight, Host, Wellness and Spa, Photography and Video, Transportation, Insurance and Assistance darian.wuckert-lowe@hotmail.com +285219581634721 https://huge-ethyl.info/":
+        - cell "Toggle menu":
+          - button "Toggle menu":
+            - img
+            - text: Toggle menu
+        - cell "10"
+        - cell "Amber Cummerata Jr"
+        - cell "13/04/2025"
+        - cell "Active"
+        - cell "Uganda"
+        - cell "Tour, Logistics, Entertainment, Accommodation, Flight, Host, Wellness and Spa, Photography and Video, Transportation, Insurance and Assistance"
+        - cell "darian.wuckert-lowe@hotmail.com"
+        - cell "+285219581634721"
+        - cell "https://huge-ethyl.info/"
+      - row "Toggle menu 9 Katie HodkiewiczNitzsche 13/04/2025 Active Nepal Transportation nakia_jacobi@hotmail.com +19626177203309 https://posh-monocle.org/":
+        - cell "Toggle menu":
+          - button "Toggle menu":
+            - img
+            - text: Toggle menu
+        - cell "9"
+        - cell "Katie HodkiewiczNitzsche"
+        - cell "13/04/2025"
+        - cell "Active"
+        - cell "Nepal"
+        - cell "Transportation"
+        - cell "nakia_jacobi@hotmail.com"
+        - cell "+19626177203309"
+        - cell "https://posh-monocle.org/"
+      - row "Toggle menu 8 Jeremiah OConner 13/04/2025 Active Mexico Others, Accommodation, Flight, Tour, Logistics, Entertainment, Insurance and Assistance, Restaurant / Food, Host, Transportation, Technology and Comunication, Photography and Video kory.hahn1@yahoo.com +16677127963 https://unfit-antelope.com/":
+        - cell "Toggle menu":
+          - button "Toggle menu":
+            - img
+            - text: Toggle menu
+        - cell "8"
+        - cell "Jeremiah OConner"
+        - cell "13/04/2025"
+        - cell "Active"
+        - cell "Mexico"
+        - cell "Others, Accommodation, Flight, Tour, Logistics, Entertainment, Insurance and Assistance, Restaurant / Food, Host, Transportation, Technology and Comunication, Photography and Video"
+        - cell "kory.hahn1@yahoo.com"
+        - cell "+16677127963"
+        - cell "https://unfit-antelope.com/"
+      - row "Toggle menu 7 Karen Beer 09/04/2025 Active Argentina Restaurant / Food, Entertainment, Photography and Video georgiana.hartmann@gmail.com +596228760011376 https://subdued-cycle.org":
+        - cell "Toggle menu":
+          - button "Toggle menu":
+            - img
+            - text: Toggle menu
+        - cell "7"
+        - cell "Karen Beer"
+        - cell "09/04/2025"
+        - cell "Active"
+        - cell "Argentina"
+        - cell "Restaurant / Food, Entertainment, Photography and Video"
+        - cell "georgiana.hartmann@gmail.com"
+        - cell "+596228760011376"
+        - cell "https://subdued-cycle.org"
+      - row "Toggle menu 6 Grace Stokes II 09/04/2025 Active Benin Flight, Host, Tour, Restaurant / Food, Photography and Video, Logistics, Entertainment marilyne_feil13@hotmail.com +4013905564 https://likely-lieu.com":
+        - cell "Toggle menu":
+          - button "Toggle menu":
+            - img
+            - text: Toggle menu
+        - cell "6"
+        - cell "Grace Stokes II"
+        - cell "09/04/2025"
+        - cell "Active"
+        - cell "Benin"
+        - cell "Flight, Host, Tour, Restaurant / Food, Photography and Video, Logistics, Entertainment"
+        - cell "marilyne_feil13@hotmail.com"
+        - cell "+4013905564"
+        - cell "https://likely-lieu.com"
+      - row "Toggle menu 5 Vendor Test - Edit created Vendor 09/04/2025 Active Colombia Transportation, Restaurant / Food testEmail@k2con.com +573137985652 https://cumbersome-petticoat.name":
+        - cell "Toggle menu":
+          - button "Toggle menu":
+            - img
+            - text: Toggle menu
+        - cell "5"
+        - cell "Vendor Test - Edit created Vendor"
+        - cell "09/04/2025"
+        - cell "Active"
+        - cell "Colombia"
+        - cell "Transportation, Restaurant / Food"
+        - cell "testEmail@k2con.com"
+        - cell "+573137985652"
+        - cell "https://cumbersome-petticoat.name"
+      - row "Toggle menu 4 Test 09/04/2025 Active Colombia Flight, Transportation, Entertainment, Insurance and Assistance, Others, Host, Accommodation, Restaurant / Food, Tour, Photography and Video, Wellness and Spa, Technology and Comunication, Logistics +938787874184":
+        - cell "Toggle menu":
+          - button "Toggle menu":
+            - img
+            - text: Toggle menu
+        - cell "4"
+        - cell "Test"
+        - cell "09/04/2025"
+        - cell "Active"
+        - cell "Colombia"
+        - cell "Flight, Transportation, Entertainment, Insurance and Assistance, Others, Host, Accommodation, Restaurant / Food, Tour, Photography and Video, Wellness and Spa, Technology and Comunication, Logistics"
+        - cell
+        - cell "+938787874184"
+        - cell
+      - row "Toggle menu 2 Avianca 07/02/2025 Active Colombia , Flight andres.villarreta@k2con.com,andres.villarreta1@gmail.com +573045244324,+584121757642 https://www.avianca.com/":
+        - cell "Toggle menu":
+          - button "Toggle menu":
+            - img
+            - text: Toggle menu
+        - cell "2"
+        - cell "Avianca"
+        - cell "07/02/2025"
+        - cell "Active"
+        - cell "Colombia"
+        - cell ", Flight"
+        - cell "andres.villarreta@k2con.com,andres.villarreta1@gmail.com"
+        - cell "+573045244324,+584121757642"
+        - cell "https://www.avianca.com/"
+      - row "Toggle menu 1 American Airlines 29/06/2024 Active United States https://www.aa.com/":
+        - cell "Toggle menu":
+          - button "Toggle menu":
+            - img
+            - text: Toggle menu
+        - cell "1"
+        - cell "American Airlines"
+        - cell "29/06/2024"
+        - cell "Active"
+        - cell "United States"
+        - cell
+        - cell
+        - cell
+        - cell "https://www.aa.com/"
+  - paragraph: Rows per page
+  - combobox: "15"
+  - text: Page 1 of 1
+  - button "Go to first page" [disabled]:
+    - text: Go to first page
+    - img
+  - button "Go to previous page" [disabled]:
+    - text: Go to previous page
+    - img
+  - button "Go to next page" [disabled]:
+    - text: Go to next page
+    - img
+  - button "Go to last page" [disabled]:
+    - text: Go to last page
+    - img
+- region "Notifications alt+T"
+```
+
+# Test source
+
+```ts
+   1 | import { test, expect } from "@playwright/test";
+   2 | import { allure } from "allure-playwright";
+   3 | import { faker } from "@faker-js/faker";
+   4 | import { BasePage, VendorsPage } from "../../../pages";
+   5 | import { countries, services, testVendor } from '../../../support/constants/constants';
+   6 |
+   7 | function getRandomServices(serviceList) {
+   8 |   let shuffled = serviceList.sort(() => 0.5 - Math.random());
+   9 |   let count = Math.floor(Math.random() * serviceList.length) + 1;
+   10 |   return shuffled.slice(0, count);
+   11 | };
+   12 |
+   13 | function generateCleanName() {
+   14 |   let fullName = faker.person.fullName();
+   15 |   return fullName.replace(/[^a-zA-Z\s]/g, "");
+   16 | }
+   17 |
+   18 | let basePage;
+   19 | let vendorsPage;
+   20 | let vendorData = {
+   21 |   name: generateCleanName(),
+   22 |   location: countries[Math.floor(Math.random() * countries.length)],
+   23 |   services: getRandomServices(services),
+   24 |   status: "active",
+   25 |   contactVendorName: generateCleanName(),
+   26 |   email: faker.internet.email().toLowerCase(),
+   27 |   phone: faker.phone.number("### ### ####"),
+   28 |   website: faker.internet.url(),
+   29 |   vendorDescription: faker.lorem.sentence(),
+   30 |   InternalNotes: faker.lorem.sentence(),
+   31 | };
+   32 |
+   33 | test.beforeEach(async ({ page, context }) => {
+   34 |   await allure.epic("Vendors - Casos de prueba relacionados a la vista de Proveedores");
+   35 |   await allure.suite("Vendors");
+   36 |   await allure.tags("e2e", "vendors");
+   37 |   basePage = new BasePage(page);
+   38 |   vendorsPage = new VendorsPage(page);
+   39 | });
+   40 |
+   41 | test("@vendors - Validar que la tabla contenga los encabezados correctos", async ({page}) => {
+   42 |   await allure.story("Encabezados en la tabla de Proveedores");
+   43 |   await allure.step(`Step 1 - Validación data desplegada en la tabla`,async () => {
+   44 |     await page.goto(`${process.env.BASEURL}/vendors`);
+   45 |     await page.waitForURL("/vendors");
+   46 |     const expectedHeaders = ["ID", "Vendor", "Created At", "Status", "Location", "Services", "Email", "Phone", "Website"];
+   47 |     const actualHeaders = await vendorsPage.getTableHeaders();
+   48 |     expect(actualHeaders).toEqual(expectedHeaders);
+   49 |     }
+   50 |   );
+   51 | });
+   52 |
+   53 | test("@vendors - Verificación del flujo de Creación de un Proveedor nuevo", async ({ page }) => {
+   54 |   await allure.story('Se crea un Proovedor de forma Exitosa');
+   55 |   await allure.step(`Step 1 - Creación de un nuevo Proveedor`, async () => {
+   56 |     await page.goto(`${process.env.BASEURL}/vendors/create`);
+   57 |     await page.waitForURL("/vendors/create");
+   58 |     await vendorsPage.createVendor(vendorData);
+   59 |     await page.goto(`${process.env.BASEURL}/vendors`);
+   60 |     await page.waitForURL("/vendors");
+>  61 |     await expect(await vendorsPage.getVendorRowTable(vendorData.name)).toHaveText(vendorData.name);
+      |                                                                        ^ Error: Timed out 5000ms waiting for expect(locator).toHaveText(expected)
+   62 |   });
+   63 | });
+   64 |
+   65 | test("@vendors - Validar que la tabla de usuarios de Proveedores tenga al menos un registro", async ({page}) => {
+   66 |   await allure.story("Lista de proveedores desplegados en la tabla");
+   67 |   await allure.step(`Step 1 - Validación de filas en la tabla`,async () => {
+   68 |       await page.goto(`${process.env.BASEURL}/vendors`);
+   69 |       await page.waitForURL("/vendors");
+   70 |       const vendorsCount = await vendorsPage.getVendorsCount();
+   71 |       expect(vendorsCount).toBeGreaterThan(0);
+   72 |     }
+   73 |   );
+   74 | });
+   75 |
+   76 | test("@vendors - Verificación del flujo de Edición de un Proveedor", async ({ page }) => {
+   77 |   await allure.story('Se Edita un Proovedor de forma Exitosa');
+   78 |   await allure.step(`Step 1 - Edición del registro de un Proveedor`, async () => {
+   79 |     await page.goto(`${process.env.BASEURL}/vendors`);
+   80 |     await page.waitForURL("/vendors");
+   81 |     const vendorId = await vendorsPage.openEditVendorByName('Vendor Test - Edit created Vendor');
+   82 |     await page.goto(`${process.env.BASEURL}/vendors/${vendorId}/edit`);
+   83 |     await page.waitForURL(`/vendors/${vendorId}/edit`);
+   84 |     await vendorsPage.editVendor(vendorData);
+   85 |     await page.goto(`${process.env.BASEURL}/vendors`);
+   86 |     await page.waitForURL("/vendors");
+   87 |     await expect(await vendorsPage.getVendorRowTable('Vendor Test - Edit created Vendor')).toHaveText('Vendor Test - Edit created Vendor');
+   88 |   });
+   89 | });
+   90 |
+   91 | test("@vendors - Validar que la tabla de proveedores pueda ser filtrada por ID", async ({page}) => {
+   92 |   await allure.story("Aplicando filtros en la tabla de Proveedores");
+   93 |   await allure.step(`Step 1 - Validación data desplegada en la tabla luego de aplicar un filtro`,async () => {
+   94 |     await page.goto(`${process.env.BASEURL}/vendors`);
+   95 |     await page.waitForURL("/vendors");
+   96 |     await vendorsPage.filterTableByColumnAndAssert(1, testVendor.id);
+   97 |     }
+   98 |   );
+   99 | });
+  100 |
+  101 | test("@vendors - Validar que la tabla de proveedores pueda ser filtrada por Proveedor", async ({page}) => {
+  102 |   await allure.story("Aplicando filtros en la tabla de Proveedores");
+  103 |   await allure.step(`Step 1 - Validación data desplegada en la tabla luego de aplicar un filtro`,async () => {
+  104 |     await page.goto(`${process.env.BASEURL}/vendors`);
+  105 |     await page.waitForURL("/vendors");
+  106 |     await vendorsPage.filterTableByColumnAndAssert(2, testVendor.name);
+  107 |     }
+  108 |   );
+  109 | });
+  110 |
+  111 | test("@vendors - Validar que la tabla de proveedores pueda ser filtrada por Dia de Creación", async ({page}) => {
+  112 |   await allure.story("Aplicando filtros en la tabla de Proveedores");
+  113 |   await allure.step(`Step 1 - Validación data desplegada en la tabla luego de aplicar un filtro`,async () => {
+  114 |     await page.goto(`${process.env.BASEURL}/vendors`);
+  115 |     await page.waitForURL("/vendors");
+  116 |     await vendorsPage.filterByDateAndAssert(3, testVendor.createdAt);
+  117 |     }
+  118 |   );
+  119 | });
+  120 |
+  121 | test("@vendors - Validar que la tabla de proveedores pueda ser filtrada por Status", async ({page}) => {
+  122 |   await allure.story("Aplicando filtros en la tabla de Proveedores");
+  123 |   await allure.step(`Step 1 - Validación data desplegada en la tabla luego de aplicar un filtro`,async () => {
+  124 |     await page.goto(`${process.env.BASEURL}/vendors`);
+  125 |     await page.waitForURL("/vendors");
+  126 |     await vendorsPage.filterTableByColumnAndAssert(4, testVendor.status);
+  127 |     }
+  128 |   );
+  129 | });
+  130 |
+  131 | test("@vendors - Validar que la tabla de proveedores pueda ser filtrada por Location", async ({page}) => {
+  132 |   await allure.story("Aplicando filtros en la tabla de Proveedores");
+  133 |   await allure.step(`Step 1 - Validación data desplegada en la tabla luego de aplicar un filtro`,async () => {
+  134 |     await page.goto(`${process.env.BASEURL}/vendors`);
+  135 |     await page.waitForURL("/vendors");
+  136 |     await vendorsPage.filterTableByColumnAndAssert(5, testVendor.location);
+  137 |     }
+  138 |   );
+  139 | });
+  140 |
+  141 | test("@vendors - Validar que la tabla de proveedores pueda ser filtrada por Email", async ({page}) => {
+  142 |   await allure.story("Aplicando filtros en la tabla de Proveedores");
+  143 |   await allure.step(`Step 1 - Validación data desplegada en la tabla luego de aplicar un filtro`,async () => {
+  144 |     await page.goto(`${process.env.BASEURL}/vendors`);
+  145 |     await page.waitForURL("/vendors");
+  146 |     await vendorsPage.filterTableByColumnAndAssert(7, testVendor.email);
+  147 |     }
+  148 |   );
+  149 | });
+  150 |
+  151 | test("@vendors - Validar que la tabla de proveedores pueda ser filtrada por Phone", async ({page}) => {
+  152 |   await allure.story("Aplicando filtros en la tabla de Proveedores");
+  153 |   await allure.step(`Step 1 - Validación data desplegada en la tabla luego de aplicar un filtro`,async () => {
+  154 |     await page.goto(`${process.env.BASEURL}/vendors`);
+  155 |     await page.waitForURL("/vendors");
+  156 |     await vendorsPage.filterTableByColumnAndAssert(8, testVendor.phone);
+  157 |     }
+  158 |   );
+  159 | });
+  160 |
+  161 | test("@vendors - Validar que la tabla de proveedores pueda ser filtrada por Website", async ({page}) => {
+```
