@@ -64,7 +64,7 @@ jobs:
     - name: Save Allure history (Para próximas ejecuciones)
       run: |
         mkdir -p allure-history
-        cp -r allure-report/history allure-history
+        cp -r allure-report/history/* allure-history/
 
     - name: Upload Allure Results (Raw Data)
       uses: actions/upload-artifact@v4
@@ -109,4 +109,4 @@ jobs:
         token: ${{ secrets.GITHUB_TOKEN }}
         branch: gh-pages
         folder: allure-report
-        target-folder: history
+        target-folder: .
