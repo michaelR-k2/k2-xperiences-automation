@@ -58,12 +58,12 @@ export const testVendor = {
 };
 
 export const testTripUser = {
-  Id: "8",
+  id: "8",
   name: "Lisseth Moreno",
   email: "lisshahimor_09@hotmail.com",
   identification: "AD939498",
-  address: "cra 23 122 89 Bogota, 110111",
+  address: "cra 23 122 89",
   country: "Colombia",
   phone: "+573168293576",
-  BirthDate: "11/05/1992",
+  birthDate: "07/01/2020",
 }

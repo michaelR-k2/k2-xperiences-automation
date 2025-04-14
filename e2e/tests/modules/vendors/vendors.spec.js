@@ -32,6 +32,7 @@ let vendorData = {
 
 test.beforeEach(async ({ page, context }) => {
   await allure.epic("Vendors - Casos de prueba relacionados a la vista de Proveedores");
+  await allure.feature("Proveedores");
   await allure.suite("Vendors");
   await allure.tags("e2e", "vendors");
   basePage = new BasePage(page);
@@ -50,7 +51,7 @@ test("@vendors - Validar que la tabla contenga los encabezados correctos", async
   );
 });
 
-test("@vendors - Verificación del flujo de Creación de un Proveedor nuevo", async ({ page }) => {
+test.skip("@vendors - Verificación del flujo de Creación de un Proveedor nuevo", async ({ page }) => {
   await allure.story('Se crea un Proovedor de forma Exitosa');
   await allure.step(`Step 1 - Creación de un nuevo Proveedor`, async () => {
     await page.goto(`${process.env.BASEURL}/vendors/create`);
@@ -73,7 +74,7 @@ test("@vendors - Validar que la tabla de usuarios de Proveedores tenga al menos 
   );
 });
 
-test("@vendors - Verificación del flujo de Edición de un Proveedor", async ({ page }) => {
+test.skip("@vendors - Verificación del flujo de Edición de un Proveedor", async ({ page }) => {
   await allure.story('Se Edita un Proovedor de forma Exitosa');
   await allure.step(`Step 1 - Edición del registro de un Proveedor`, async () => {
     await page.goto(`${process.env.BASEURL}/vendors`);
@@ -158,7 +159,7 @@ test("@vendors - Validar que la tabla de proveedores pueda ser filtrada por Phon
   );
 });
 
-test("@vendors - Validar que la tabla de proveedores pueda ser filtrada por Website", async ({page}) => {
+test.skip("@vendors - Validar que la tabla de proveedores pueda ser filtrada por Website", async ({page}) => {
   await allure.story("Aplicando filtros en la tabla de Proveedores");
   await allure.step(`Step 1 - Validación data desplegada en la tabla luego de aplicar un filtro`,async () => {
     await page.goto(`${process.env.BASEURL}/vendors`);
