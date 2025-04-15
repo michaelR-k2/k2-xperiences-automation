@@ -1,0 +1,27 @@
+[
+    {
+      "name": "❌ Failed Tests",
+      "matchedStatuses": ["failed"],
+      "messageRegex": ".*"
+    },
+    {
+      "name": "⚠️ Broken Tests",
+      "matchedStatuses": ["broken"],
+      "messageRegex": ".*"
+    },
+    {
+      "name": "✅ Passed Tests",
+      "matchedStatuses": ["passed"],
+      "messageRegex": ".*"
+    },
+    {
+      "name": "⏭️ Skipped Tests",
+      "matchedStatuses": ["skipped"],
+      "messageRegex": ".*"
+    },
+    {
+      "name": "❓ Unknown Status",
+      "matchedStatuses": ["unknown"],
+      "messageRegex": ".*"
+    }
+  ]
