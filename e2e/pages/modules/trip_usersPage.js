@@ -1,8 +1,9 @@
 import { locator, page, expect } from "@playwright/test";
+import BasePage from "../BasePage";
 
-export default class TripUsersPage {
+export default class TripUsersPage extends BasePage {
   constructor(page) {
-    this.page = page;
+    super(page);
     // 📄 Locators de la tabla
     this.usersTable = page.locator("table tbody");
     this.allUsers = this.usersTable.locator("tr");

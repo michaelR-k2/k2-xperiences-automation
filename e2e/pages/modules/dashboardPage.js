@@ -1,8 +1,9 @@
 import { locator, page, expect } from "@playwright/test";
+import BasePage from "../BasePage";
 
-export default class DashboardPage {
+export default class DashboardPage extends BasePage {
   constructor(page) {
-    this.page = page;
+    super(page);
     // 📊 Locators de métricas
     this.totalRevenue = page.locator('div.p-6.pb-2 h3', { hasText: 'Total Revenue' }).locator("..");
     this.subscriptions = page.locator('div.p-6.pb-2 h3', { hasText: 'Subscriptions' }).locator("..");

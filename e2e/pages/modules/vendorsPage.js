@@ -1,8 +1,9 @@
 import { locator, page, expect } from "@playwright/test";
+import BasePage from "../BasePage";
 
-export default class VendorsPage {
+export default class VendorsPage extends BasePage {
   constructor(page) {
-    this.page = page;
+    super(page);
     this.nameInput = page.locator('input#name');
     this.selectCountryButton = page.locator('div:has(label[for="location"]) > button');
     this.searchCountryInput = page.locator('input[placeholder="Search country..."]');

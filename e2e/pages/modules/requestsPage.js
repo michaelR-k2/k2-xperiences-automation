@@ -1,8 +1,9 @@
 import { locator, page, expect } from "@playwright/test";
+import BasePage from "../BasePage";
 
-export default class RequestsPage {
+export default class RequestsPage extends BasePage {
   constructor(page) {
-    this.page = page;
+    super(page);
 
   }
 }

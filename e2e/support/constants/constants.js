@@ -66,4 +66,60 @@ export const testTripUser = {
   country: "Colombia",
   phone: "+573168293576",
   birthDate: "07/01/2020",
-}
+};
+
+export const testExperience = {
+  id: "64",
+  name: "Experiencia de Prueba para pruebas Automatizadas",
+  status: "Active",
+  createdAt: "02/04/2025",
+  featured: "true",
+  signature: "false",
+  destination: "Argentina",
+  duration:"3 - 4",
+  packages: "1 - 5",
+  startingAt: "$12,500.00",
+};
+
+export const itinerarios = [
+  {
+    nombre: "Aventura en Costa Rica",
+    dias: [
+      { dia: 1, descripcion: "Llegada a San José, check-in en el hotel y paseo por el centro histórico." },
+      { dia: 2, descripcion: "Excursión al Volcán Arenal y aguas termales en La Fortuna." },
+      { dia: 3, descripcion: "Tirolesa y senderismo en Monteverde." },
+      { dia: 4, descripcion: "Safari flotante en Río Peñas Blancas y visita a una finca local." },
+      { dia: 5, descripcion: "Regreso a San José y salida." }
+    ]
+  },
+  {
+    nombre: "Cultura y gastronomía en México",
+    dias: [
+      { dia: 1, descripcion: "Llegada a Ciudad de México, tour por el Centro Histórico." },
+      { dia: 2, descripcion: "Visita a Teotihuacán y degustación de comida tradicional." },
+      { dia: 3, descripcion: "Museo Frida Kahlo y recorrido por Coyoacán." },
+      { dia: 4, descripcion: "Mercado de San Juan y clase de cocina mexicana." },
+      { dia: 5, descripcion: "Brunch en la Roma y vuelo de regreso." }
+    ]
+  },
+  {
+    nombre: "Explorando Patagonia Argentina",
+    dias: [
+      { dia: 1, descripcion: "Arribo a El Calafate y descanso con vista al lago." },
+      { dia: 2, descripcion: "Visita al Glaciar Perito Moreno y navegación entre los témpanos." },
+      { dia: 3, descripcion: "Trekking en el Parque Nacional Los Glaciares." },
+      { dia: 4, descripcion: "Día libre para actividades opcionales como kayak o cabalgatas." },
+      { dia: 5, descripcion: "Regreso a Buenos Aires." }
+    ]
+  },
+  {
+    nombre: "Encanto caribeño en Cartagena, Colombia",
+    dias: [
+      { dia: 1, descripcion: "Llegada, traslado al hotel en el centro histórico y paseo nocturno." },
+      { dia: 2, descripcion: "Tour por la ciudad amurallada y visita al Castillo de San Felipe." },
+      { dia: 3, descripcion: "Excursión a las Islas del Rosario y snorkel." },
+      { dia: 4, descripcion: "Día libre para compras, relax en la playa o spa." },
+      { dia: 5, descripcion: "Último desayuno en la terraza y regreso." }
+    ]
+  }
+];

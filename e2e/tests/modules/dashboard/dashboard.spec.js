@@ -28,7 +28,7 @@ test("@Dashboard - La vista debe mostrar todas las métricas principales", async
   );
 });
 
-test("@Dashboard - Verificar que al hacer click en View All re redireccione correctamente a la vista de Requerimientos", async ({ page }) => {
+test("@Dashboard - Verificar que al hacer click en View All redireccione correctamente a la vista de Requerimientos", async ({ page }) => {
   await allure.story( "Redirección a la vista de Requerimientos");
   await allure.step(`Step 1 - Validación del funcionamiento del boton View all `, async () => {
       await page.goto(`${process.env.BASEURL}/dashboard`);

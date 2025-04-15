@@ -1,8 +1,9 @@
 import { locator, page, expect } from "@playwright/test";
+import BasePage from "./BasePage";
 
-export default class LoginPage {
+export default class LoginPage extends BasePage {
   constructor(page) {
-    this.page = page;
+    super(page);
     this.emailInput = page.locator('[name="email"]');
     this.passwordInput = page.locator('[name="password"]');
     this.submitButton = page.locator('button:has-text("Submit")');
