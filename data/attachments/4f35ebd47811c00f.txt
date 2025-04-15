@@ -1,0 +1,453 @@
+# Instructions
+
+- Following Playwright test failed.
+- Explain why, be concise, respect Playwright best practices.
+- Provide a snippet of code with the fix, if possible.
+
+# Test info
+
+- Name: @vendors - Validar que la tabla de proveedores pueda ser filtrada por Dia de Creación
+- Location: /home/runner/work/k2-xperiences-automation/k2-xperiences-automation/e2e/tests/modules/vendors/vendors.spec.js:112:5
+
+# Error details
+
+```
+Error: expect(received).toBeTruthy()
+
+Received: false
+    at VendorsPage.filterByDateAndAssert (/home/runner/work/k2-xperiences-automation/k2-xperiences-automation/e2e/pages/modules/vendorsPage.js:107:19)
+    at /home/runner/work/k2-xperiences-automation/k2-xperiences-automation/e2e/tests/modules/vendors/vendors.spec.js:117:5
+```
+
+# Page snapshot
+
+```yaml
+- complementary:
+  - img "Logo_K2_Travel"
+  - button:
+    - img
+  - navigation:
+    - link "Dashboard":
+      - img
+      - text: Dashboard
+    - link "Requests":
+      - img
+      - text: Requests
+    - link "Projects":
+      - img
+      - text: Projects
+    - link "Experiences":
+      - img
+      - text: Experiences
+    - link "Vendors":
+      - img
+      - text: Vendors
+    - link "Trip Users":
+      - img
+      - text: Trip Users
+    - link "File System":
+      - img
+      - text: File System
+  - button:
+    - img
+- main:
+  - heading "Vendors (25)" [level=2]
+  - button "Create new vendor"
+  - table:
+    - rowgroup:
+      - row "ID Vendor Created At April 9th, 2025 Status Location Services Email Phone Website":
+        - cell
+        - cell "ID":
+          - text: ID
+          - button:
+            - img
+          - textbox
+        - cell "Vendor":
+          - text: Vendor
+          - button:
+            - img
+          - textbox
+        - cell "Created At April 9th, 2025":
+          - text: Created At
+          - button:
+            - img
+          - button "April 9th, 2025":
+            - text: April 9th, 2025
+            - img
+        - cell "Status":
+          - text: Status
+          - button:
+            - img
+          - textbox
+        - cell "Location":
+          - text: Location
+          - button:
+            - img
+          - textbox
+        - cell "Services":
+          - text: Services
+          - button:
+            - img
+          - textbox
+        - cell "Email":
+          - text: Email
+          - button:
+            - img
+          - textbox
+        - cell "Phone":
+          - text: Phone
+          - button:
+            - img
+          - textbox
+        - cell "Website":
+          - text: Website
+          - button:
+            - img
+          - textbox
+    - rowgroup:
+      - row "Toggle menu 26 Alexandra Dibbert 13/04/2025 Inactive Peru sonia_bogan29@gmail.com +24395839553802 https://www.avianca.com/":
+        - cell "Toggle menu":
+          - button "Toggle menu":
+            - img
+            - text: Toggle menu
+        - cell "26"
+        - cell "Alexandra Dibbert"
+        - cell "13/04/2025"
+        - cell "Inactive"
+        - cell "Peru"
+        - cell
+        - cell "sonia_bogan29@gmail.com"
+        - cell "+24395839553802"
+        - cell "https://www.avianca.com/"
+      - row "Toggle menu 25 Sarah Mante II 13/04/2025 Active Grenada Insurance and Assistance, Others, Tour, Accommodation, Flight, Host, Transportation, Photography and Video, Restaurant / Food, Entertainment vernice_friesen99@gmail.com +9572241301 https://cautious-calculus.org":
+        - cell "Toggle menu":
+          - button "Toggle menu":
+            - img
+            - text: Toggle menu
+        - cell "25"
+        - cell "Sarah Mante II"
+        - cell "13/04/2025"
+        - cell "Active"
+        - cell "Grenada"
+        - cell "Insurance and Assistance, Others, Tour, Accommodation, Flight, Host, Transportation, Photography and Video, Restaurant / Food, Entertainment"
+        - cell "vernice_friesen99@gmail.com"
+        - cell "+9572241301"
+        - cell "https://cautious-calculus.org"
+      - row "Toggle menu 24 Marsha RomagueraJaskolski II 13/04/2025 Active El Salvador Photography and Video, Accommodation, Technology and Comunication, Insurance and Assistance, Wellness and Spa, Entertainment, Flight, Others, Logistics jayme72@hotmail.com +66852493086468 https://abandoned-gripper.info/":
+        - cell "Toggle menu":
+          - button "Toggle menu":
+            - img
+            - text: Toggle menu
+        - cell "24"
+        - cell "Marsha RomagueraJaskolski II"
+        - cell "13/04/2025"
+        - cell "Active"
+        - cell "El Salvador"
+        - cell "Photography and Video, Accommodation, Technology and Comunication, Insurance and Assistance, Wellness and Spa, Entertainment, Flight, Others, Logistics"
+        - cell "jayme72@hotmail.com"
+        - cell "+66852493086468"
+        - cell "https://abandoned-gripper.info/"
+      - row "Toggle menu 23 Mrs Pam Schroeder 13/04/2025 Active United States Transportation darby85@hotmail.com +8077739444 https://early-nudge.net":
+        - cell "Toggle menu":
+          - button "Toggle menu":
+            - img
+            - text: Toggle menu
+        - cell "23"
+        - cell "Mrs Pam Schroeder"
+        - cell "13/04/2025"
+        - cell "Active"
+        - cell "United States"
+        - cell "Transportation"
+        - cell "darby85@hotmail.com"
+        - cell "+8077739444"
+        - cell "https://early-nudge.net"
+      - row "Toggle menu 22 Hattie Hilpert 13/04/2025 Active El Salvador Host, Entertainment, Flight, Transportation, Others, Accommodation, Wellness and Spa, Technology and Comunication mable_schimmel@yahoo.com +50233840793207 https://thorny-understanding.name/":
+        - cell "Toggle menu":
+          - button "Toggle menu":
+            - img
+            - text: Toggle menu
+        - cell "22"
+        - cell "Hattie Hilpert"
+        - cell "13/04/2025"
+        - cell "Active"
+        - cell "El Salvador"
+        - cell "Host, Entertainment, Flight, Transportation, Others, Accommodation, Wellness and Spa, Technology and Comunication"
+        - cell "mable_schimmel@yahoo.com"
+        - cell "+50233840793207"
+        - cell "https://thorny-understanding.name/"
+      - row "Toggle menu 21 Mr Rodney Goodwin 13/04/2025 Active Venezuela Flight, Wellness and Spa, Technology and Comunication gerson_kutch99@gmail.com +17775460344002 https://rich-impostor.name/":
+        - cell "Toggle menu":
+          - button "Toggle menu":
+            - img
+            - text: Toggle menu
+        - cell "21"
+        - cell "Mr Rodney Goodwin"
+        - cell "13/04/2025"
+        - cell "Active"
+        - cell "Venezuela"
+        - cell "Flight, Wellness and Spa, Technology and Comunication"
+        - cell "gerson_kutch99@gmail.com"
+        - cell "+17775460344002"
+        - cell "https://rich-impostor.name/"
+      - row "Toggle menu 20 Hector Wolf 13/04/2025 Active Venezuela Restaurant / Food, Technology and Comunication, Transportation, Wellness and Spa, Host, Logistics, Insurance and Assistance, Flight, Tour, Others, Photography and Video cathrine_hoeger@hotmail.com +1356832132142594 https://insignificant-colon.name/":
+        - cell "Toggle menu":
+          - button "Toggle menu":
+            - img
+            - text: Toggle menu
+        - cell "20"
+        - cell "Hector Wolf"
+        - cell "13/04/2025"
+        - cell "Active"
+        - cell "Venezuela"
+        - cell "Restaurant / Food, Technology and Comunication, Transportation, Wellness and Spa, Host, Logistics, Insurance and Assistance, Flight, Tour, Others, Photography and Video"
+        - cell "cathrine_hoeger@hotmail.com"
+        - cell "+1356832132142594"
+        - cell "https://insignificant-colon.name/"
+      - row "Toggle menu 19 Julius Towne Sr 13/04/2025 Active Argentina Accommodation, Wellness and Spa, Flight, Insurance and Assistance, Others, Tour, Restaurant / Food, Photography and Video, Logistics, Host, Technology and Comunication, Transportation, Entertainment emerson_wyman@gmail.com +14065868189726 https://whispered-waterspout.org":
+        - cell "Toggle menu":
+          - button "Toggle menu":
+            - img
+            - text: Toggle menu
+        - cell "19"
+        - cell "Julius Towne Sr"
+        - cell "13/04/2025"
+        - cell "Active"
+        - cell "Argentina"
+        - cell "Accommodation, Wellness and Spa, Flight, Insurance and Assistance, Others, Tour, Restaurant / Food, Photography and Video, Logistics, Host, Technology and Comunication, Transportation, Entertainment"
+        - cell "emerson_wyman@gmail.com"
+        - cell "+14065868189726"
+        - cell "https://whispered-waterspout.org"
+      - row "Toggle menu 18 Thelma Kozey 13/04/2025 Active Peru Restaurant / Food, Accommodation, Tour, Photography and Video coy.oreilly-bernier@gmail.com +2633810954 https://lighthearted-pacemaker.org/":
+        - cell "Toggle menu":
+          - button "Toggle menu":
+            - img
+            - text: Toggle menu
+        - cell "18"
+        - cell "Thelma Kozey"
+        - cell "13/04/2025"
+        - cell "Active"
+        - cell "Peru"
+        - cell "Restaurant / Food, Accommodation, Tour, Photography and Video"
+        - cell "coy.oreilly-bernier@gmail.com"
+        - cell "+2633810954"
+        - cell "https://lighthearted-pacemaker.org/"
+      - row "Toggle menu 17 Faye Prosacco MD 13/04/2025 Active Paraguay Accommodation, Tour, Insurance and Assistance, Logistics, Flight, Entertainment, Restaurant / Food, Others, Transportation karlie.kerluke86@hotmail.com +63669404089277 https://affectionate-interior.net/":
+        - cell "Toggle menu":
+          - button "Toggle menu":
+            - img
+            - text: Toggle menu
+        - cell "17"
+        - cell "Faye Prosacco MD"
+        - cell "13/04/2025"
+        - cell "Active"
+        - cell "Paraguay"
+        - cell "Accommodation, Tour, Insurance and Assistance, Logistics, Flight, Entertainment, Restaurant / Food, Others, Transportation"
+        - cell "karlie.kerluke86@hotmail.com"
+        - cell "+63669404089277"
+        - cell "https://affectionate-interior.net/"
+      - row "Toggle menu 16 Francis Prosacco 13/04/2025 Active Argentina Insurance and Assistance, Technology and Comunication, Logistics kaya_herzog@yahoo.com +3416612516 https://helpless-opera.biz":
+        - cell "Toggle menu":
+          - button "Toggle menu":
+            - img
+            - text: Toggle menu
+        - cell "16"
+        - cell "Francis Prosacco"
+        - cell "13/04/2025"
+        - cell "Active"
+        - cell "Argentina"
+        - cell "Insurance and Assistance, Technology and Comunication, Logistics"
+        - cell "kaya_herzog@yahoo.com"
+        - cell "+3416612516"
+        - cell "https://helpless-opera.biz"
+      - row "Toggle menu 15 Jenna Rosenbaum 13/04/2025 Active Guatemala Tour, Wellness and Spa, Technology and Comunication, Others, Host, Logistics, Photography and Video kathryn_pouros-ohara@hotmail.com +866018007 https://qualified-possession.org":
+        - cell "Toggle menu":
+          - button "Toggle menu":
+            - img
+            - text: Toggle menu
+        - cell "15"
+        - cell "Jenna Rosenbaum"
+        - cell "13/04/2025"
+        - cell "Active"
+        - cell "Guatemala"
+        - cell "Tour, Wellness and Spa, Technology and Comunication, Others, Host, Logistics, Photography and Video"
+        - cell "kathryn_pouros-ohara@hotmail.com"
+        - cell "+866018007"
+        - cell "https://qualified-possession.org"
+      - row "Toggle menu 14 Erin Wilkinson 13/04/2025 Active Guyana Others willow_towne@yahoo.com +7437849587912 https://puny-appliance.net":
+        - cell "Toggle menu":
+          - button "Toggle menu":
+            - img
+            - text: Toggle menu
+        - cell "14"
+        - cell "Erin Wilkinson"
+        - cell "13/04/2025"
+        - cell "Active"
+        - cell "Guyana"
+        - cell "Others"
+        - cell "willow_towne@yahoo.com"
+        - cell "+7437849587912"
+        - cell "https://puny-appliance.net"
+      - row "Toggle menu 13 Dianna Gerlach II 13/04/2025 Active Argentina Technology and Comunication, Flight, Others, Accommodation, Transportation kamille35@yahoo.com +4077435594 https://perky-toothbrush.net":
+        - cell "Toggle menu":
+          - button "Toggle menu":
+            - img
+            - text: Toggle menu
+        - cell "13"
+        - cell "Dianna Gerlach II"
+        - cell "13/04/2025"
+        - cell "Active"
+        - cell "Argentina"
+        - cell "Technology and Comunication, Flight, Others, Accommodation, Transportation"
+        - cell "kamille35@yahoo.com"
+        - cell "+4077435594"
+        - cell "https://perky-toothbrush.net"
+      - row "Toggle menu 12 Dr Everett Friesen 13/04/2025 Active Paraguay Host, Flight bradford37@hotmail.com +383835782917359 https://unwritten-pasta.org/":
+        - cell "Toggle menu":
+          - button "Toggle menu":
+            - img
+            - text: Toggle menu
+        - cell "12"
+        - cell "Dr Everett Friesen"
+        - cell "13/04/2025"
+        - cell "Active"
+        - cell "Paraguay"
+        - cell "Host, Flight"
+        - cell "bradford37@hotmail.com"
+        - cell "+383835782917359"
+        - cell "https://unwritten-pasta.org/"
+  - paragraph: Rows per page
+  - combobox: "15"
+  - text: Page 1 of 2
+  - button "Go to first page" [disabled]:
+    - text: Go to first page
+    - img
+  - button "Go to previous page" [disabled]:
+    - text: Go to previous page
+    - img
+  - button "Go to next page":
+    - text: Go to next page
+    - img
+  - button "Go to last page":
+    - text: Go to last page
+    - img
+- region "Notifications alt+T"
+```
+
+# Test source
+
+```ts
+   7 |     this.nameInput = page.locator('input#name');
+   8 |     this.selectCountryButton = page.locator('div:has(label[for="location"]) > button');
+   9 |     this.searchCountryInput = page.locator('input[placeholder="Search country..."]');
+   10 |     this.dropdownContainer = page.locator('div[data-side="bottom"]');
+   11 |     this.selectServicesButton = page.locator('div:has(label[for="services"]) > button');
+   12 |     this.searchServiceInput = page.locator('input[placeholder="Search ..."]');
+   13 |     this.contactVendorNameInput = page.locator('input[placeholder="Enter Contact vendor name"]');
+   14 |     this.emailInput = page.locator('input[placeholder="Enter vendor email"]');
+   15 |     this.selectPhoneButton = page.locator('div.PhoneInput  > button[aria-haspopup="dialog"]');
+   16 |     this.phoneInput = page.locator('input[placeholder="Your phone"]');
+   17 |     this.websiteInput = page.locator('input[placeholder="Enter vendor website"]');
+   18 |     this.vendorDescription = page.locator('textarea[placeholder="Enter vendor description"]');
+   19 |     this.vendorNotes = page.locator('textarea#comments');
+   20 |     this.submitButton = page.locator('button[type="submit"]');
+   21 |     this.statusDropdown = page.locator('div select');
+   22 |     this.vendorsTable = page.locator("table tbody");
+   23 |     this.allVendors = this.vendorsTable.locator("tr");
+   24 |     this.tableHeaders = page.locator("table thead tr th div span");
+   25 |   }
+   26 |
+   27 |   async openEditVendorByName(vendorName){
+   28 |       const row = await this.page.locator('tbody tr', { hasText: vendorName }).first();
+   29 |       const idCell = await row.locator('td').nth(1);
+   30 |       const id = await idCell.textContent();
+   31 |       return id?.trim();
+   32 |   };
+   33 |   async getVendorRowTable(vendorName) {
+   34 |     return this.page.locator('tbody tr td:nth-child(3)', { hasText: vendorName });
+   35 |   };
+   36 |   async getVendorsCount() {
+   37 |     await this.page.waitForSelector("table tbody tr", {state: "attached"});
+   38 |     return await this.allVendors.count(); 
+   39 |   }
+   40 |   async getTableHeaders() {
+   41 |     await this.tableHeaders.first().waitFor({ state: "visible" });
+   42 |     return await this.tableHeaders.allTextContents();
+   43 |   }
+   44 |   async createVendor(vendorData) {
+   45 |     await this.nameInput.fill(vendorData.name);
+   46 |     await this.selectCountryButton.click();
+   47 |     await this.searchCountryInput.fill(vendorData.location);
+   48 |     await this.dropdownContainer.locator('div.overflow-hidden > div span.text-sm', { hasText: new RegExp(`^${vendorData.location}$`, 'i') }).click();
+   49 |     await this.selectServicesButton.click();
+   50 |     for (const service of vendorData.services) {
+   51 |       await this.searchServiceInput.fill(service);
+   52 |       await this.dropdownContainer
+   53 |         .locator('div.overflow-hidden > div[role="listbox"]', { hasText: new RegExp(`^${service}$`, 'i') })
+   54 |         .click();
+   55 |     }
+   56 |     await this.page.click('body'); 
+   57 |     await this.statusDropdown.selectOption(vendorData.status.toLowerCase());
+   58 |     await this.contactVendorNameInput.fill(vendorData.contactVendorName);
+   59 |     await this.emailInput.fill(vendorData.email);
+   60 |     await this.selectPhoneButton.click();
+   61 |     await this.searchCountryInput.fill(vendorData.location);
+   62 |     await this.dropdownContainer.locator('div.overflow-hidden > div span.flex-1.text-sm', { hasText: new RegExp(`^${vendorData.location}$`, 'i') }).click();
+   63 |     await this.phoneInput.fill(vendorData.phone);
+   64 |     await this.websiteInput.fill(vendorData.website);
+   65 |     await this.vendorDescription.fill(vendorData.vendorDescription);
+   66 |     await this.vendorNotes.fill(vendorData.InternalNotes);
+   67 |     await this.submitButton.click();
+   68 |   }
+   69 |
+   70 |   async editVendor(vendorData) {
+   71 |     await this.selectCountryButton.click();
+   72 |     await this.searchCountryInput.fill(vendorData.location);
+   73 |     await this.page.click('body'); 
+   74 |     await this.vendorDescription.fill(vendorData.vendorDescription);
+   75 |     await this.vendorNotes.fill(vendorData.InternalNotes);
+   76 |     await this.submitButton.click();
+   77 |   }
+   78 |
+   79 |   async filterByDateAndAssert(columnIndex, dateString) {
+   80 |     const [day, month, year] = dateString.split('/').map(Number);
+   81 |     const columnSelector = `thead tr th:nth-child(${columnIndex + 1})`;
+   82 |     await this.page.locator(`${columnSelector} button[aria-haspopup="dialog"]`).click();
+   83 |     const getCurrentMonthYear = async () => {
+   84 |       const header = await this.page.locator('[role="dialog"] >> text=/^[A-Z][a-z]+ \\d{4}$/').textContent();
+   85 |       const [currentMonthName, currentYear] = header.split(' ');
+   86 |       const currentMonth = new Date(`${currentMonthName} 1, 2000`).getMonth() + 1;
+   87 |       return { currentMonth, currentYear: parseInt(currentYear) };
+   88 |     };
+   89 |     while (true) {
+   90 |       const { currentMonth, currentYear } = await getCurrentMonthYear();
+   91 |       if (currentMonth === month && currentYear === year) break;
+   92 |   
+   93 |       if (currentYear > year || (currentYear === year && currentMonth > month)) {
+   94 |         await this.page.locator('button[aria-label="Go to the Previous Month"]').click();
+   95 |       } else {
+   96 |         await this.page.locator('button[aria-label="Go to the Next Month"]').click();
+   97 |       }
+   98 |   
+   99 |       await this.page.waitForTimeout(1000);
+  100 |     }
+  101 |     await this.page.locator(`button:has-text("${day}")`).first().click();
+  102 |     await this.page.waitForTimeout(1000);
+  103 |     await this.page.locator('body').click();
+  104 |     const matchingCells = await this.page.locator(`tbody tr td:nth-child(${columnIndex + 1})`).allInnerTexts();
+  105 |     
+  106 |     const found = matchingCells.some(text => text.trim() === dateString);
+> 107 |     expect(found).toBeTruthy();
+      |                   ^ Error: expect(received).toBeTruthy()
+  108 |   };
+  109 |
+  110 |   async filterTableByColumnAndAssert(columnIndex, valueToFilter) {
+  111 |     const filterInput = this.page.locator(`thead tr th:nth-child(${columnIndex + 1}) input`);
+  112 |     await filterInput.fill(valueToFilter);
+  113 |     await this.page.waitForTimeout(2500); 
+  114 |     const matchingCells = await this.page.locator(`tbody tr td:nth-child(${columnIndex + 1})`).allInnerTexts();
+  115 |
+  116 |     const found = matchingCells.some(text => text.trim() === valueToFilter);
+  117 |     expect(found).toBeTruthy();
+  118 |   }
+  119 | }
+```

@@ -1,1 +1,1 @@
-[{"data":{"run":72,"retry":0}},{"data":{"run":58,"retry":0}},{"data":{"run":58,"retry":0}}]
+[{"buildOrder":1,"reportName":"Playwright Allure Report","data":{"run":72,"retry":1}},{"buildOrder":1,"reportName":"Playwright Allure Report","data":{"run":72,"retry":4}},{"data":{"run":72,"retry":0}},{"data":{"run":58,"retry":0}},{"data":{"run":58,"retry":0}}]
