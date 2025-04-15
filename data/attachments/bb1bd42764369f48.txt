@@ -1,0 +1,378 @@
+# Instructions
+
+- Following Playwright test failed.
+- Explain why, be concise, respect Playwright best practices.
+- Provide a snippet of code with the fix, if possible.
+
+# Test info
+
+- Name: @trip_users - Validar que la tabla de de Usuarios de Viaje pueda ser filtrada por Fecha de Cumpleaños
+- Location: /home/runner/work/k2-xperiences-automation/k2-xperiences-automation/e2e/tests/modules/trip_users/trip_users.spec.js:100:5
+
+# Error details
+
+```
+Error: locator.click: Test timeout of 300000ms exceeded.
+Call log:
+  - waiting for locator('button[aria-label="Go to the Previous Month"]')
+    - locator resolved to <button type="button" tabindex="-1" aria-label="Go to the Previous Month" class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 border border-dark hover:bg-background hover:text-accent-foreground absolute left-0 h-7 w-7 bg-transparent p-0 opacity-80 hover:opacity-100">…</button>
+  - attempting click action
+    2 × waiting for element to be visible, enabled and stable
+      - element is visible, enabled and stable
+      - scrolling into view if needed
+      - done scrolling
+      - <iframe></iframe> from <div>…</div> subtree intercepts pointer events
+    - retrying click action
+    - waiting 20ms
+    2 × waiting for element to be visible, enabled and stable
+      - element is visible, enabled and stable
+      - scrolling into view if needed
+      - done scrolling
+      - <iframe></iframe> from <div>…</div> subtree intercepts pointer events
+    - retrying click action
+      - waiting 100ms
+    577 × waiting for element to be visible, enabled and stable
+        - element is visible, enabled and stable
+        - scrolling into view if needed
+        - done scrolling
+        - <iframe></iframe> from <div>…</div> subtree intercepts pointer events
+      - retrying click action
+        - waiting 500ms
+
+    at TripUsersPage.filterByDateAndAssert (/home/runner/work/k2-xperiences-automation/k2-xperiences-automation/e2e/pages/modules/trip_usersPage.js:40:82)
+    at /home/runner/work/k2-xperiences-automation/k2-xperiences-automation/e2e/tests/modules/trip_users/trip_users.spec.js:105:5
+```
+
+# Page snapshot
+
+```yaml
+- complementary:
+  - img "Logo_K2_Travel"
+  - button:
+    - img
+  - navigation:
+    - link "Dashboard":
+      - img
+      - text: Dashboard
+    - link "Requests":
+      - img
+      - text: Requests
+    - link "Projects":
+      - img
+      - text: Projects
+    - link "Experiences":
+      - img
+      - text: Experiences
+    - link "Vendors":
+      - img
+      - text: Vendors
+    - link "Trip Users":
+      - img
+      - text: Trip Users
+    - link "File System":
+      - img
+      - text: File System
+  - button:
+    - img
+- main:
+  - heading "Trip Users (9)" [level=2]
+  - table:
+    - rowgroup:
+      - row "ID name Email Identification Address Country Phone Birthdate Pick a date":
+        - cell "ID":
+          - text: ID
+          - button:
+            - img
+          - textbox
+        - cell "name":
+          - text: name
+          - button:
+            - img
+          - textbox
+        - cell "Email":
+          - text: Email
+          - button:
+            - img
+          - textbox
+        - cell "Identification":
+          - text: Identification
+          - button:
+            - img
+          - textbox
+        - cell "Address":
+          - text: Address
+          - button:
+            - img
+          - textbox
+        - cell "Country":
+          - text: Country
+          - button:
+            - img
+          - textbox
+        - cell "Phone":
+          - text: Phone
+          - button:
+            - img
+          - textbox
+        - cell "Birthdate Pick a date":
+          - text: Birthdate
+          - button:
+            - img
+          - button "Pick a date" [expanded]:
+            - text: Pick a date
+            - img
+    - rowgroup:
+      - row "9 Carlos Alberto Pinelly Mujica carlos@k2con.com dddddddd Calle Ricardo Darquea, Casa 2-104 Cuenca, Ecuador, 010103 Ecuador +593999946458 07/01/2020":
+        - cell "9"
+        - cell "Carlos Alberto Pinelly Mujica"
+        - cell "carlos@k2con.com"
+        - cell "dddddddd"
+        - cell "Calle Ricardo Darquea, Casa 2-104 Cuenca, Ecuador, 010103"
+        - cell "Ecuador"
+        - cell "+593999946458"
+        - cell "07/01/2020"
+      - row "8 Lisseth Moreno lisshahimor_09@hotmail.com AD939498 cra 23 122 89 Bogota, 110111 Colombia +573168293576 11/05/1992":
+        - cell "8"
+        - cell "Lisseth Moreno"
+        - cell "lisshahimor_09@hotmail.com"
+        - cell "AD939498"
+        - cell "cra 23 122 89 Bogota, 110111"
+        - cell "Colombia"
+        - cell "+573168293576"
+        - cell "11/05/1992"
+      - row "7 Devin Grimes cesar@k2con.com 160 Distinctio Nobis ve Et est non voluptate, 77 Albania +1633179296 27/01/2018":
+        - cell "7"
+        - cell "Devin Grimes"
+        - cell "cesar@k2con.com"
+        - cell "160"
+        - cell "Distinctio Nobis ve Et est non voluptate, 77"
+        - cell "Albania"
+        - cell "+1633179296"
+        - cell "27/01/2018"
+      - 'row "6 LISSETH MORENO PARRA lissmorenop@gmail.com AD939495 Carrera 16 # 136 - 60 Bogotá, 110121 Colombia +573168293576 11/05/1992"':
+        - cell "6"
+        - cell "LISSETH MORENO PARRA"
+        - cell "lissmorenop@gmail.com"
+        - cell "AD939495"
+        - 'cell "Carrera 16 # 136 - 60 Bogotá, 110121"'
+        - cell "Colombia"
+        - cell "+573168293576"
+        - cell "11/05/1992"
+      - 'row "5 Miguel Fernandez miguel@k2con.com 1234567891 Diag 29 #26 a sur int 204 Envigado, 055420 Colombia +573045244324 01/01/2000"':
+        - cell "5"
+        - cell "Miguel Fernandez"
+        - cell "miguel@k2con.com"
+        - cell "1234567891"
+        - 'cell "Diag 29 #26 a sur int 204 Envigado, 055420"'
+        - cell "Colombia"
+        - cell "+573045244324"
+        - cell "01/01/2000"
+      - 'row "4 Andres Villarreta andres.villarreta@k2con.com 1932012345 Diag 29 #26 a sur int 204 Envigado, 055420 Colombia +573045244324 11/11/2003"':
+        - cell "4"
+        - cell "Andres Villarreta"
+        - cell "andres.villarreta@k2con.com"
+        - cell "1932012345"
+        - 'cell "Diag 29 #26 a sur int 204 Envigado, 055420"'
+        - cell "Colombia"
+        - cell "+573045244324"
+        - cell "11/11/2003"
+      - row "3 Andrés Corral andres@mappa.ai 270 Assumenda excepturi Bogota, 252432 Colombia +19347155162 14/10/1984":
+        - cell "3"
+        - cell "Andrés Corral"
+        - cell "andres@mappa.ai"
+        - cell "270"
+        - cell "Assumenda excepturi Bogota, 252432"
+        - cell "Colombia"
+        - cell "+19347155162"
+        - cell "14/10/1984"
+      - row "2 Amal Aguirre test@mailinator.com 863 Iusto et facilis omn Optio est saepe qui, 27 Albania +16172253238 06/05/1972":
+        - cell "2"
+        - cell "Amal Aguirre"
+        - cell "test@mailinator.com"
+        - cell "863"
+        - cell "Iusto et facilis omn Optio est saepe qui, 27"
+        - cell "Albania"
+        - cell "+16172253238"
+        - cell "06/05/1972"
+      - row "1 Kyle Rodriquez lujevum@mailinator.com 240 Nobis nobis voluptat Anim consequatur ear, 46 Colombia +18681578498 08/08/2015":
+        - cell "1"
+        - cell "Kyle Rodriquez"
+        - cell "lujevum@mailinator.com"
+        - cell "240"
+        - cell "Nobis nobis voluptat Anim consequatur ear, 46"
+        - cell "Colombia"
+        - cell "+18681578498"
+        - cell "08/08/2015"
+  - paragraph: Rows per page
+  - combobox: "15"
+  - text: Page 1 of 1
+  - button "Go to first page" [disabled]:
+    - text: Go to first page
+    - img
+  - button "Go to previous page" [disabled]:
+    - text: Go to previous page
+    - img
+  - button "Go to next page" [disabled]:
+    - text: Go to next page
+    - img
+  - button "Go to last page" [disabled]:
+    - text: Go to last page
+    - img
+- region "Notifications alt+T"
+- dialog:
+  - navigation:
+    - button "Go to the Previous Month":
+      - img
+    - button "Go to the Next Month":
+      - img
+  - button "April 2025"
+  - grid "April 2025":
+    - rowgroup:
+      - row "Sunday, March 30th, 2025 Monday, March 31st, 2025 Tuesday, April 1st, 2025 Wednesday, April 2nd, 2025 Thursday, April 3rd, 2025 Friday, April 4th, 2025 Saturday, April 5th, 2025":
+        - gridcell "Sunday, March 30th, 2025":
+          - button "Sunday, March 30th, 2025": "30"
+        - gridcell "Monday, March 31st, 2025":
+          - button "Monday, March 31st, 2025": "31"
+        - gridcell "Tuesday, April 1st, 2025":
+          - button "Tuesday, April 1st, 2025": "1"
+        - gridcell "Wednesday, April 2nd, 2025":
+          - button "Wednesday, April 2nd, 2025": "2"
+        - gridcell "Thursday, April 3rd, 2025":
+          - button "Thursday, April 3rd, 2025": "3"
+        - gridcell "Friday, April 4th, 2025":
+          - button "Friday, April 4th, 2025": "4"
+        - gridcell "Saturday, April 5th, 2025":
+          - button "Saturday, April 5th, 2025": "5"
+      - row "Sunday, April 6th, 2025 Monday, April 7th, 2025 Tuesday, April 8th, 2025 Wednesday, April 9th, 2025 Thursday, April 10th, 2025 Friday, April 11th, 2025 Saturday, April 12th, 2025":
+        - gridcell "Sunday, April 6th, 2025":
+          - button "Sunday, April 6th, 2025": "6"
+        - gridcell "Monday, April 7th, 2025":
+          - button "Monday, April 7th, 2025": "7"
+        - gridcell "Tuesday, April 8th, 2025":
+          - button "Tuesday, April 8th, 2025": "8"
+        - gridcell "Wednesday, April 9th, 2025":
+          - button "Wednesday, April 9th, 2025": "9"
+        - gridcell "Thursday, April 10th, 2025":
+          - button "Thursday, April 10th, 2025": "10"
+        - gridcell "Friday, April 11th, 2025":
+          - button "Friday, April 11th, 2025": "11"
+        - gridcell "Saturday, April 12th, 2025":
+          - button "Saturday, April 12th, 2025": "12"
+      - row "Sunday, April 13th, 2025 Monday, April 14th, 2025 Today, Tuesday, April 15th, 2025 Wednesday, April 16th, 2025 Thursday, April 17th, 2025 Friday, April 18th, 2025 Saturday, April 19th, 2025":
+        - gridcell "Sunday, April 13th, 2025":
+          - button "Sunday, April 13th, 2025": "13"
+        - gridcell "Monday, April 14th, 2025":
+          - button "Monday, April 14th, 2025": "14"
+        - gridcell "Today, Tuesday, April 15th, 2025":
+          - button "Today, Tuesday, April 15th, 2025": "15"
+        - gridcell "Wednesday, April 16th, 2025":
+          - button "Wednesday, April 16th, 2025": "16"
+        - gridcell "Thursday, April 17th, 2025":
+          - button "Thursday, April 17th, 2025": "17"
+        - gridcell "Friday, April 18th, 2025":
+          - button "Friday, April 18th, 2025": "18"
+        - gridcell "Saturday, April 19th, 2025":
+          - button "Saturday, April 19th, 2025": "19"
+      - row "Sunday, April 20th, 2025 Monday, April 21st, 2025 Tuesday, April 22nd, 2025 Wednesday, April 23rd, 2025 Thursday, April 24th, 2025 Friday, April 25th, 2025 Saturday, April 26th, 2025":
+        - gridcell "Sunday, April 20th, 2025":
+          - button "Sunday, April 20th, 2025": "20"
+        - gridcell "Monday, April 21st, 2025":
+          - button "Monday, April 21st, 2025": "21"
+        - gridcell "Tuesday, April 22nd, 2025":
+          - button "Tuesday, April 22nd, 2025": "22"
+        - gridcell "Wednesday, April 23rd, 2025":
+          - button "Wednesday, April 23rd, 2025": "23"
+        - gridcell "Thursday, April 24th, 2025":
+          - button "Thursday, April 24th, 2025": "24"
+        - gridcell "Friday, April 25th, 2025":
+          - button "Friday, April 25th, 2025": "25"
+        - gridcell "Saturday, April 26th, 2025":
+          - button "Saturday, April 26th, 2025": "26"
+      - row "Sunday, April 27th, 2025 Monday, April 28th, 2025 Tuesday, April 29th, 2025 Wednesday, April 30th, 2025 Thursday, May 1st, 2025 Friday, May 2nd, 2025 Saturday, May 3rd, 2025":
+        - gridcell "Sunday, April 27th, 2025":
+          - button "Sunday, April 27th, 2025": "27"
+        - gridcell "Monday, April 28th, 2025":
+          - button "Monday, April 28th, 2025": "28"
+        - gridcell "Tuesday, April 29th, 2025":
+          - button "Tuesday, April 29th, 2025": "29"
+        - gridcell "Wednesday, April 30th, 2025":
+          - button "Wednesday, April 30th, 2025": "30"
+        - gridcell "Thursday, May 1st, 2025":
+          - button "Thursday, May 1st, 2025": "1"
+        - gridcell "Friday, May 2nd, 2025":
+          - button "Friday, May 2nd, 2025": "2"
+        - gridcell "Saturday, May 3rd, 2025":
+          - button "Saturday, May 3rd, 2025": "3"
+```
+
+# Test source
+
+```ts
+   1 | import { locator, page, expect } from "@playwright/test";
+   2 | import BasePage from "../BasePage";
+   3 |
+   4 | export default class TripUsersPage extends BasePage {
+   5 |   constructor(page) {
+   6 |     super(page);
+   7 |     // 📄 Locators de la tabla
+   8 |     this.usersTable = page.locator("table tbody");
+   9 |     this.allUsers = this.usersTable.locator("tr");
+  10 |     this.tableHeaders = page.locator("table thead tr th div span");
+  11 |     // 🔄 Paginación
+  12 |     this.rowsPerPageButton = page.locator("button[role='combobox']");
+  13 |     this.paginationNext = page.locator("button[aria-label='Next page']");
+  14 |     this.paginationPrev = page.locator("button[aria-label='Previous page']");
+  15 |   }
+  16 |
+  17 |   async getUserCount() {
+  18 |     await this.page.waitForSelector("table tbody tr", {state: "attached"});
+  19 |     return await this.allUsers.count();
+  20 |   }
+  21 |   async getTableHeaders() {
+  22 |     await this.tableHeaders.first().waitFor({ state: "visible" });
+  23 |     return await this.tableHeaders.allTextContents();
+  24 |   }
+  25 |   async filterByDateAndAssert(columnIndex, dateString) {
+  26 |     const [day, month, year] = dateString.split('/').map(Number);
+  27 |     const columnSelector = `thead tr th:nth-child(${columnIndex})`;
+  28 |     await this.page.locator(`${columnSelector} button[aria-haspopup="dialog"]`).click();
+  29 |     const getCurrentMonthYear = async () => {
+  30 |       const header = await this.page.locator('[role="dialog"] >> text=/^[A-Z][a-z]+ \\d{4}$/').textContent();
+  31 |       const [currentMonthName, currentYear] = header.split(' ');
+  32 |       const currentMonth = new Date(`${currentMonthName} 1, 2000`).getMonth() + 1;
+  33 |       return { currentMonth, currentYear: parseInt(currentYear) };
+  34 |     };
+  35 |     while (true) {
+  36 |       const { currentMonth, currentYear } = await getCurrentMonthYear();
+  37 |       if (currentMonth === month && currentYear === year) break;
+  38 |   
+  39 |       if (currentYear > year || (currentYear === year && currentMonth > month)) {
+> 40 |         await this.page.locator('button[aria-label="Go to the Previous Month"]').click();
+     |                                                                                  ^ Error: locator.click: Test timeout of 300000ms exceeded.
+  41 |       } else {
+  42 |         await this.page.locator('button[aria-label="Go to the Next Month"]').click();
+  43 |       }
+  44 |   
+  45 |       await this.page.waitForTimeout(200);
+  46 |     }
+  47 |     await this.page.locator(`button:has-text("${day}")`).first().click();
+  48 |     await this.page.waitForTimeout(500);
+  49 |     await this.page.locator('body').click();
+  50 |     const matchingCells = await this.page.locator(`tbody tr td:nth-child(${columnIndex})`).allInnerTexts();
+  51 |     
+  52 |     const found = matchingCells.some(text => text.trim() === dateString);
+  53 |     expect(found).toBeTruthy();
+  54 |   };
+  55 |
+  56 |   async filterTableByColumnAndAssert(columnIndex, valueToFilter) {
+  57 |     const filterInput = this.page.locator(`thead tr th:nth-child(${columnIndex}) input`);
+  58 |     await filterInput.fill(valueToFilter);
+  59 |     await this.page.waitForTimeout(2500); 
+  60 |     const matchingCells = await this.page.locator(`tbody tr td:nth-child(${columnIndex})`).allInnerTexts();
+  61 |
+  62 |     const found = matchingCells.some(text => text.trim() === valueToFilter);
+  63 |     expect(found).toBeTruthy();
+  64 |   }
+  65 | }
+  66 |
+```
