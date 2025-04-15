@@ -66,7 +66,7 @@ test("@experiences - Validar que la tabla de experiencias pueda ser filtrada por
 });
 
 
-test.skip("@experiences - Verificación del flujo de Edición de una Experiencia", async ({ page }) => {
+test("@experiences - Verificación del flujo de Edición de una Experiencia", async ({ page }) => {
   await allure.story('Se Edita una Experiencia de forma Exitosa');
   await allure.step(`Step 1 - Edición del registro de una experiencia`, async () => {
     await page.goto(`${process.env.BASEURL}/experiences`);
