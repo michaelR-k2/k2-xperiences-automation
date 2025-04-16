@@ -143,3 +143,25 @@ export const testRequest = {
   phone: "+573163926785",
   status: "Accepted",
 }
+
+export const testProject = {
+  id: "39",
+  createdAt: "12/03/2025",
+  pmName: "Lisseth",
+  type: "Client",
+  projectName: "Ejemplo Proyecto",
+  experience: "Viva Las Vegas: A Sin City Spectacle for All",
+  departure: "Brazil",
+  destination: "Madrid, Spain",
+  packages: "8",
+  lenght: "5 - 6",
+  meals: "Breakfast",
+  approach: "Beach",
+  budget: "20000",
+  department: "Marketing",
+  contactName: "Lisseth Moreno",
+  mcPerson: "lisseth@k2con.com",
+  phone: "+573163926785",
+  poQuantity: "2",
+  status: "Completed",
+}

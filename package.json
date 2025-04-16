@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "npx playwright test --reporter=allure-playwright",
+    "test:e2e:projects": "npx playwright test --project chromium --grep @projects",
     "test:e2e:requests": "npx playwright test --project chromium --grep @requests",
     "test:e2e:experiences": "npx playwright test --project chromium --grep @experiences",
     "test:e2e:vendors": "npx playwright test --project chromium --grep @vendors",
