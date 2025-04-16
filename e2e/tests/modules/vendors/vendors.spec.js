@@ -68,7 +68,7 @@ test("@vendors - Validar que la tabla de usuarios de Proveedores tenga al menos 
   await allure.step(`Step 1 - Validación de filas en la tabla`,async () => {
       await page.goto(`${process.env.BASEURL}/vendors`);
       await page.waitForURL("/vendors");
-      const vendorsCount = await vendorsPage.getVendorsCount();
+      const vendorsCount = await vendorsPage.getTableRowsCount();
       expect(vendorsCount).toBeGreaterThan(0);
     }
   );

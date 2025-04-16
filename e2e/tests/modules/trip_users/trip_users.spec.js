@@ -20,7 +20,7 @@ test("@trip_users - Validar que la tabla de usuarios de Viajes tenga al menos un
   await allure.story("Transacciones desplegadas en la tabla");
   await allure.step(`Step 1 - Validación de Transacciones mostradas en la tabla`,async () => {
       await page.goto(`${process.env.BASEURL}/trip-users`);
-      const userCount = await trip_usersPage.getUserCount();
+      const userCount = await trip_usersPage.getTableRowsCount();
       expect(userCount).toBeGreaterThan(0);
     }
   );

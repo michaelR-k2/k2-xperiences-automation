@@ -7,21 +7,12 @@ export default class TripUsersPage extends BasePage {
     // 📄 Locators de la tabla
     this.usersTable = page.locator("table tbody");
     this.allUsers = this.usersTable.locator("tr");
-    this.tableHeaders = page.locator("table thead tr th div span");
     // 🔄 Paginación
     this.rowsPerPageButton = page.locator("button[role='combobox']");
     this.paginationNext = page.locator("button[aria-label='Next page']");
     this.paginationPrev = page.locator("button[aria-label='Previous page']");
   }
 
-  async getUserCount() {
-    await this.page.waitForSelector("table tbody tr", {state: "attached"});
-    return await this.allUsers.count();
-  }
-  async getTableHeaders() {
-    await this.tableHeaders.first().waitFor({ state: "visible" });
-    return await this.tableHeaders.allTextContents();
-  }
   async filterByDateAndAssert(columnIndex, dateString) {
     const [day, month, year] = dateString.split('/').map(Number);
     const columnSelector = `thead tr th:nth-child(${columnIndex})`;

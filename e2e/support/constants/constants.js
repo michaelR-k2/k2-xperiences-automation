@@ -123,3 +123,23 @@ export const itinerarios = [
     ]
   }
 ];
+
+export const testRequest = {
+  id: `${Math.floor(Math.random() * 41) + 1}`,
+  createdAt: "07/02/2025",
+  requestChannel: "Platform",
+  type: "Client",
+  experience: "Madrid Experience: Art, Wine & Soccer Passion",
+  departure: "Colombia",
+  destination: "Madrid, Spain",
+  packages: "5",
+  lenght: "2 - 3",
+  meals: "All-inclusive",
+  approach: "Cultural",
+  budget: "10000",
+  department: "Marketing",
+  contactName: "Dunn and Clay LLC",
+  email: "Andres.villarreta@k2con.com",
+  phone: "+573163926785",
+  status: "Accepted",
+}

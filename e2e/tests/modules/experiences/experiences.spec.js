@@ -15,6 +15,17 @@ test.beforeEach(async ({ page, context }) => {
   experiencesPage = new ExperiencesPage(page);
 });
 
+test("@experiences - Validar que la tabla  de Experiencias tenga al menos un registro", async ({page}) => {
+  await allure.story("Transacciones desplegadas en la tabla");
+  await allure.step(`Step 1 - Validación de Transacciones mostradas en la tabla`,async () => {
+      await page.goto(`${process.env.BASEURL}/experiences`);
+      await page.waitForURL("/experiences");
+      const experiencesCount = await experiencesPage.getTableRowsCount();
+      expect(experiencesCount).toBeGreaterThan(0);
+    }
+  );
+});
+
 test("@experiences - Validar que la tabla de experiencias pueda ser filtrada por ID", async ({page}) => {
   await allure.story("Aplicando filtros en la tabla de Proveedores");
   await allure.step(`Step 1 - Validación data desplegada en la tabla luego de aplicar un filtro`,async () => {
@@ -25,8 +36,8 @@ test("@experiences - Validar que la tabla de experiencias pueda ser filtrada por
   );
 });
 
-test("@vendors - Validar que la tabla de experiencias pueda ser filtrada por Dia de Creación", async ({page}) => {
-  await allure.story("Aplicando filtros en la tabla de experiencias");
+test("@experiences - Validar que la tabla de experiencias pueda ser filtrada por Dia de Creación", async ({page}) => {
+  await allure.story("Aplicando filtros en la tabla de Proveedores");
   await allure.step(`Step 1 - Validación data desplegada en la tabla luego de aplicar un filtro`,async () => {
     await page.goto(`${process.env.BASEURL}/experiences`);
     await page.waitForURL("/experiences");
@@ -64,6 +75,17 @@ test("@experiences - Validar que la tabla de experiencias pueda ser filtrada por
     }
   );
 });
+
+test("@experiences - Validar que la tabla de experiencias pueda ser filtrada por el estado de la Experiencia", async ({page}) => {
+  await allure.story("Aplicando filtros en la tabla de Proveedores");
+  await allure.step(`Step 1 - Validación data desplegada en la tabla luego de aplicar un filtro`,async () => {
+    await page.goto(`${process.env.BASEURL}/experiences`);
+    await page.waitForURL("/experiences");
+    await experiencesPage.filterTableByColumnAndAssert(8, testExperience.status);
+    }
+  );
+});
+
 
 
 test.skip("@experiences - Verificación del flujo de Edición de una Experiencia", async ({ page }) => {
