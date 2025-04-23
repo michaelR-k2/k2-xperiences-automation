@@ -1,0 +1,120 @@
+# Instructions
+
+- Following Playwright test failed.
+- Explain why, be concise, respect Playwright best practices.
+- Provide a snippet of code with the fix, if possible.
+
+# Test info
+
+- Name: @login - Verificación de inicio de sesion con usuario existente pero contraseña incorrecta
+- Location: /home/runner/work/k2-xperiences-automation/k2-xperiences-automation/e2e/tests/login.spec.js:47:5
+
+# Error details
+
+```
+Error: Timed out 5000ms waiting for expect(locator).toBeVisible()
+
+Locator: locator('p.text-sm.font-medium.text-destructive.mt-2')
+Expected: visible
+Received: <element(s) not found>
+Call log:
+  - expect.toBeVisible with timeout 5000ms
+  - waiting for locator('p.text-sm.font-medium.text-destructive.mt-2')
+
+    at /home/runner/work/k2-xperiences-automation/k2-xperiences-automation/e2e/tests/login.spec.js:51:42
+```
+
+# Page snapshot
+
+```yaml
+- banner:
+  - link "Logo_K2_Travel":
+    - img "Logo_K2_Travel"
+- heading "Log in" [level=1]
+- text: Email
+- textbox "Email": andres.villarreta@k2con.com
+- text: Password
+- textbox "Password": huxejuvomixe
+- button "Submit"
+```
+
+# Test source
+
+```ts
+   1 | import { test, expect } from "@playwright/test";
+   2 | import { allure } from "allure-playwright";
+   3 | import { faker } from "@faker-js/faker";
+   4 | import { BasePage, LoginPage } from "../pages";
+   5 |
+   6 | let loginPage;
+   7 | let basePage;
+   8 | let user = { 
+   9 |   email: faker.internet.email(),
+  10 |   password: faker.internet.password({ length: 12, memorable: true }),
+  11 | };
+  12 |
+  13 | test.beforeEach(async ({ page, context }) => {
+  14 |   await allure.epic("Login - Casos de prueba relacionados a inicio de Sesión");
+  15 |   await allure.feature('Inicio de sesión');
+  16 |   await allure.suite("Login");
+  17 |   await allure.tags("e2e", "login");
+  18 |   loginPage = new LoginPage(page);
+  19 |   basePage = new BasePage(page);
+  20 |   await context.clearCookies();
+  21 |   await context.clearPermissions();
+  22 |   await allure.step(`Step 1 - La pagina de inicio de Sesión se carga correctamente en el Navegador.`, async () => {
+  23 |       await loginPage.goToLoginPage();
+  24 |       expect(await basePage.getCurrentUrl()).toContain(process.env.BASEURL);
+  25 |     }
+  26 |   );
+  27 | });
+  28 |
+  29 | test("@login - Verificación de inicio de sesion con usuario existente", async ({ page }) => {
+  30 |   await allure.story('El usuario Inicia sesion de manera exitosa');
+  31 |   await allure.step(`Step 2 - Validacion con Usuario y contraseña Validos`, async () => {
+  32 |     await loginPage.loginToXperiences();
+  33 |     await page.waitForSelector('a[href*="/dashboard"]', { state: 'visible' });
+  34 |     expect(await basePage.getCurrentUrl()).toContain(`${process.env.BASEURL}/dashboard`);
+  35 |   });
+  36 | });
+  37 |
+  38 | test("@login - Verificación de inicio de sesion con usuario inexistente/invalido", async ({ page }) => {
+  39 |   await allure.story('El Email ingresado para el inicio de sesion es incorrecto');
+  40 |   await allure.step(`Step 2 - Validacion con Email incorrecto`, async () => {
+  41 |     await loginPage.loginWithInvalidEmail(user);
+  42 |     await expect(loginPage.errorMessage).toBeVisible();
+  43 |     await expect(loginPage.errorMessage).toHaveText("These credentials do not match our records.");
+  44 |   });
+  45 | });
+  46 |
+  47 | test("@login - Verificación de inicio de sesion con usuario existente pero contraseña incorrecta", async ({ page }) => {
+  48 |   await allure.story('La contraseña Ingresada en el proceso de inicio de Sesion no es correcta');
+  49 |   await allure.step(`Step 2 - Validacion con Contraseña Incorrecta`, async () => {
+  50 |     await loginPage.loginWithInvalidPassword(user);
+> 51 |     await expect(loginPage.errorMessage).toBeVisible();
+     |                                          ^ Error: Timed out 5000ms waiting for expect(locator).toBeVisible()
+  52 |     await expect(loginPage.errorMessage).toHaveText("These credentials do not match our records.");
+  53 |   });
+  54 | });
+  55 |
+  56 | test("@login - Verificación de mensajes para valores requeridos (Email)", async ({ page }) => {
+  57 |   await allure.story('Validación de Inicio de sesion con el campo de Email Vacio');
+  58 |   await allure.step(`Step 2 - Validacion de campos vacios para el Email`, async () => {
+  59 |     await loginPage.loginWithEmptyEmail(user);
+  60 |     await expect(loginPage.errorMessage).toBeVisible();
+  61 |     await expect(loginPage.errorMessage).toHaveText("The email field is required.");
+  62 |   });
+  63 | });
+  64 |
+  65 | test("@login - Verificación de mensajes para valores requeridos (Password)", async ({ page }) => {
+  66 |   await allure.story('Validación de Inicio de sesion con el campo de Contraseña Vacia');
+  67 |   await allure.step(`Step 2 - Validacion de campos vacios para la contraseña`, async () => {
+  68 |     await loginPage.loginWithEmptyPassword(user);
+  69 |     await expect(loginPage.errorMessage).toBeVisible();
+  70 |     await expect(loginPage.errorMessage).toHaveText("The password field is required.");
+  71 |   });
+  72 | });
+  73 |
+  74 |
+  75 |
+```
