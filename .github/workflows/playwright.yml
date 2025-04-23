@@ -122,3 +122,5 @@ jobs:
         branch: gh-pages
         folder: allure-report
         target-folder: .
+        exclude: |
+          data/attachments/**
