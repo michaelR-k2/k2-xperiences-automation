@@ -53,7 +53,7 @@ export const testVendor = {
   id: "5",
   name: "Vendor Test - Edit created Vendor",
   location: "Colombia",
-  services: "Transportation, Restaurant / Food",
+  services: "Photography and Video",
   email: "testEmail@k2con.com",
   createdAt: "09/04/2025",
   status: generalStatuses[Math.floor(Math.random() * generalStatuses.length)],

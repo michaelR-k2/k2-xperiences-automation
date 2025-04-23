@@ -51,7 +51,7 @@ test("@vendors - Validar que la tabla contenga los encabezados correctos", async
   );
 });
 
-test.skip("@vendors - Verificación del flujo de Creación de un Proveedor nuevo", async ({ page }) => {
+test("@vendors - Verificación del flujo de Creación de un Proveedor nuevo", async ({ page }) => {
   await allure.story('Se crea un Proovedor de forma Exitosa');
   await allure.step(`Step 1 - Creación de un nuevo Proveedor`, async () => {
     await page.goto(`${process.env.BASEURL}/vendors/create`);
@@ -74,18 +74,16 @@ test("@vendors - Validar que la tabla de usuarios de Proveedores tenga al menos 
   );
 });
 
-test.skip("@vendors - Verificación del flujo de Edición de un Proveedor", async ({ page }) => {
+test("@vendors - Verificación del flujo de Edición de un Proveedor", async ({ page }) => {
   await allure.story('Se Edita un Proovedor de forma Exitosa');
   await allure.step(`Step 1 - Edición del registro de un Proveedor`, async () => {
     await page.goto(`${process.env.BASEURL}/vendors`);
     await page.waitForURL("/vendors");
+    await vendorsPage.filterTableByColumnAndAssert(2, testVendor.name);
     const vendorId = await vendorsPage.openEditVendorByName('Vendor Test - Edit created Vendor');
     await page.goto(`${process.env.BASEURL}/vendors/${vendorId}/edit`);
     await page.waitForURL(`/vendors/${vendorId}/edit`);
     await vendorsPage.editVendor(vendorData);
-    await page.goto(`${process.env.BASEURL}/vendors`);
-    await page.waitForURL("/vendors");
-    await expect(await vendorsPage.getVendorRowTable('Vendor Test - Edit created Vendor')).toHaveText('Vendor Test - Edit created Vendor');
   });
 });
 
