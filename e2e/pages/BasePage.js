@@ -70,5 +70,17 @@ export default class BasePage {
     expect(found).toBeTruthy();
   }
 
+  async filterTableByStatusAndAssert(columnIndex, valueToFilter) {
+    const filterInput = this.page.locator(`thead tr th:nth-child(${columnIndex + 1}) button[role="combobox"]`);
+    await filterInput.click();
+    const regex = new RegExp(`^${valueToFilter.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}$`);
+    await this.page.locator('div[data-radix-popper-content-wrapper]').getByText(regex).click();
+    await this.page.waitForTimeout(1000); 
+    const matchingCells = await this.page.locator(`tbody tr td:nth-child(${columnIndex + 1})`).allInnerTexts();
+
+    const found = matchingCells.some(text => text.trim().includes(valueToFilter));
+    expect(found).toBeTruthy();
+  }
+
   delay = (milliseconds) => new Promise((resolve) => setTimeout(resolve, milliseconds));
 }

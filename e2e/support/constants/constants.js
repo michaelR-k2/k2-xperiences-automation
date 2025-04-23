@@ -1,3 +1,7 @@
+const generalStatuses = ["Active", "Inactive"];
+const requestsStatuses = ["Accepted", "Contacted", "Received", "Discarded"];
+const projectsStatuses = ["Completed", "Started", "In Progress"];
+
 export const countries = [
   "Argentina",
   "Bahamas",
@@ -52,7 +56,7 @@ export const testVendor = {
   services: "Transportation, Restaurant / Food",
   email: "testEmail@k2con.com",
   createdAt: "09/04/2025",
-  status: "Active",
+  status: generalStatuses[Math.floor(Math.random() * generalStatuses.length)],
   phone: "+573137985652",
   website: "https://cumbersome-petticoat.name",
 };
@@ -71,7 +75,7 @@ export const testTripUser = {
 export const testExperience = {
   id: "64",
   name: "Experiencia de Prueba para pruebas Automatizadas",
-  status: "Active",
+  status: generalStatuses[Math.floor(Math.random() * generalStatuses.length)],
   createdAt: "02/04/2025",
   featured: "true",
   signature: "false",
@@ -141,7 +145,7 @@ export const testRequest = {
   contactName: "Dunn and Clay LLC",
   email: "Andres.villarreta@k2con.com",
   phone: "+573163926785",
-  status: "Accepted",
+  status: requestsStatuses[Math.floor(Math.random() * requestsStatuses.length)],
 }
 
 export const testProject = {
@@ -163,5 +167,5 @@ export const testProject = {
   mcPerson: "lisseth@k2con.com",
   phone: "+573163926785",
   poQuantity: "2",
-  status: "Completed",
+  status: projectsStatuses[Math.floor(Math.random() * projectsStatuses.length)],
 }

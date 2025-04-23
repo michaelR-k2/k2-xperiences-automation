@@ -44,7 +44,7 @@ test("@vendors - Validar que la tabla contenga los encabezados correctos", async
   await allure.step(`Step 1 - Validación data desplegada en la tabla`,async () => {
     await page.goto(`${process.env.BASEURL}/vendors`);
     await page.waitForURL("/vendors");
-    const expectedHeaders = ["ID", "Vendor", "Created At", "Status", "Location", "Services", "Email", "Phone", "Website"];
+    const expectedHeaders = ["ID", "Vendor", "Created At", "Location", "Services", "Email", "Phone", "Website", "Status"];
     const actualHeaders = await vendorsPage.getTableHeaders();
     expect(actualHeaders).toEqual(expectedHeaders);
     }
@@ -124,7 +124,7 @@ test("@vendors - Validar que la tabla de proveedores pueda ser filtrada por Stat
   await allure.step(`Step 1 - Validación data desplegada en la tabla luego de aplicar un filtro`,async () => {
     await page.goto(`${process.env.BASEURL}/vendors`);
     await page.waitForURL("/vendors");
-    await vendorsPage.filterTableByColumnAndAssert(4, testVendor.status);
+    await vendorsPage.filterTableByStatusAndAssert(9, testVendor.status);
     }
   );
 });
@@ -134,7 +134,7 @@ test("@vendors - Validar que la tabla de proveedores pueda ser filtrada por Loca
   await allure.step(`Step 1 - Validación data desplegada en la tabla luego de aplicar un filtro`,async () => {
     await page.goto(`${process.env.BASEURL}/vendors`);
     await page.waitForURL("/vendors");
-    await vendorsPage.filterTableByColumnAndAssert(5, testVendor.location);
+    await vendorsPage.filterTableByColumnAndAssert(4, testVendor.location);
     }
   );
 });
@@ -144,7 +144,7 @@ test("@vendors - Validar que la tabla de proveedores pueda ser filtrada por Serv
   await allure.step(`Step 1 - Validación data desplegada en la tabla luego de aplicar un filtro`,async () => {
     await page.goto(`${process.env.BASEURL}/vendors`);
     await page.waitForURL("/vendors");
-    await vendorsPage.filterTableByColumnAndAssert(6, testVendor.services);
+    await vendorsPage.filterTableByColumnAndAssert(5, testVendor.services);
     }
   );
 });
@@ -154,7 +154,7 @@ test("@vendors - Validar que la tabla de proveedores pueda ser filtrada por Emai
   await allure.step(`Step 1 - Validación data desplegada en la tabla luego de aplicar un filtro`,async () => {
     await page.goto(`${process.env.BASEURL}/vendors`);
     await page.waitForURL("/vendors");
-    await vendorsPage.filterTableByColumnAndAssert(7, testVendor.email);
+    await vendorsPage.filterTableByColumnAndAssert(6, testVendor.email);
     }
   );
 });
@@ -164,7 +164,7 @@ test("@vendors - Validar que la tabla de proveedores pueda ser filtrada por Phon
   await allure.step(`Step 1 - Validación data desplegada en la tabla luego de aplicar un filtro`,async () => {
     await page.goto(`${process.env.BASEURL}/vendors`);
     await page.waitForURL("/vendors");
-    await vendorsPage.filterTableByColumnAndAssert(8, testVendor.phone);
+    await vendorsPage.filterTableByColumnAndAssert(7, testVendor.phone);
     }
   );
 });
@@ -174,7 +174,7 @@ test("@vendors - Validar que la tabla de proveedores pueda ser filtrada por Webs
   await allure.step(`Step 1 - Validación data desplegada en la tabla luego de aplicar un filtro`,async () => {
     await page.goto(`${process.env.BASEURL}/vendors`);
     await page.waitForURL("/vendors");
-    await vendorsPage.filterTableByColumnAndAssert(9, testVendor.website);
+    await vendorsPage.filterTableByColumnAndAssert(8, testVendor.website);
     }
   );
 });

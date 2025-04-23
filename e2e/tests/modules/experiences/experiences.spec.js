@@ -81,7 +81,7 @@ test("@experiences - Validar que la tabla de experiencias pueda ser filtrada por
   await allure.step(`Step 1 - Validación data desplegada en la tabla luego de aplicar un filtro`,async () => {
     await page.goto(`${process.env.BASEURL}/experiences`);
     await page.waitForURL("/experiences");
-    await experiencesPage.filterTableByColumnAndAssert(8, testExperience.status);
+    await experiencesPage.filterTableByStatusAndAssert(8, testExperience.status);
     }
   );
 });

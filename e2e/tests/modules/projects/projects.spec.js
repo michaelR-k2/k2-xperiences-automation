@@ -233,7 +233,7 @@ test("@projects - Validar que la tabla de Proyectos pueda ser filtrada por Estad
   await allure.step(`Step 1 - Validación data desplegada en la tabla luego de aplicar un filtro`,async () => {
     await page.goto(`${process.env.BASEURL}/projects`);
     await page.waitForURL("/projects");
-    await projectsPage.filterTableByColumnAndAssert(19, testProject.status);
+    await projectsPage.filterTableByStatusAndAssert(19, testProject.status);
     }
   );
 });

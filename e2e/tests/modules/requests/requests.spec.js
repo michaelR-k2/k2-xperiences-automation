@@ -221,7 +221,7 @@ test("@requests - Validar que la tabla de Solicitudes pueda ser filtrada por Est
   await allure.step(`Step 1 - Validación data desplegada en la tabla luego de aplicar un filtro`,async () => {
     await page.goto(`${process.env.BASEURL}/requests`);
     await page.waitForURL("/requests");
-    await requestsPage.filterTableByColumnAndAssert(17, testRequest.status);
+    await requestsPage.filterTableByStatusAndAssert(17, testRequest.status);
     }
   );
 });
