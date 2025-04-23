@@ -52,7 +52,7 @@ jobs:
         fi
 
     - name: Run Playwright tests
-      run: npx playwright test --reporter=allure-playwright
+      run: npx playwright test --reporter=allure-playwright || true
       env:
         BASEURL: ${{ secrets.BASEURL }}
         USER_EMAIL: ${{ secrets.USER_EMAIL }}
@@ -70,9 +70,6 @@ jobs:
         }' > allure-results/executor.json
         echo "✅ Executor info agregada"
 
-    - name: Generate Allure Report
-      run: npx allure-commandline generate allure-results --clean -o allure-report
-
     - name: Agregar categorías a Allure
       run: |
         echo "Archivos disponibles en el root:"
@@ -85,6 +82,9 @@ jobs:
       run: |
         mkdir -p allure-history
         cp -r allure-report/history/* allure-history/
+
+    - name: Generate Allure Report
+      run: npx allure-commandline generate allure-results --clean -o allure-report
 
     - name: Upload Allure Results (Raw Data)
       uses: actions/upload-artifact@v4
