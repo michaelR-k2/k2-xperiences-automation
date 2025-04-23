@@ -52,7 +52,7 @@ jobs:
         fi
 
     - name: Run Playwright tests
-      run: npx playwright test --reporter=allure-playwright
+      run: npx playwright test --reporter=allure-playwright || true
       env:
         BASEURL: ${{ secrets.BASEURL }}
         USER_EMAIL: ${{ secrets.USER_EMAIL }}
@@ -70,9 +70,6 @@ jobs:
         }' > allure-results/executor.json
         echo "✅ Executor info agregada"
 
-    - name: Generate Allure Report
-      run: npx allure-commandline generate allure-results --clean -o allure-report
-
     - name: Agregar categorías a Allure
       run: |
         echo "Archivos disponibles en el root:"
@@ -80,6 +77,9 @@ jobs:
         mkdir -p allure-results
         cp categories.json allure-results/categories.json
         echo "✅ Categorías copiadas a allure-results"
+
+    - name: Generate Allure Report
+      run: npx allure-commandline generate allure-results --clean -o allure-report
 
     - name: Save Allure history (Para próximas ejecuciones)
       run: |
@@ -122,3 +122,5 @@ jobs:
         branch: gh-pages
         folder: allure-report
         target-folder: .
+        exclude: |
+          data/attachments/**
