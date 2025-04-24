@@ -1,1 +1,1 @@
-[]
+[{"values":["Chromium | Firefox"],"name":"Browser"},{"values":["Desarrollo (DEV)"],"name":"Environment"},{"values":["1.1.0"],"name":"Build"},{"values":["Windows"],"name":"Platform"},{"values":["GitHub Actions"],"name":"Executor"},{"values":["URL=https://xperiencesdev.masamo.tech/"],"name":"Tested"},{"values":["Name=K2 Xperiences Automation"],"name":"Project"},{"values":["Michael Rodriguez (QA Analyst)"],"name":"Author"},{"values":["Runner=Playwright"],"name":"Test"},{"values":["Version=v22.14.0"],"name":"Node"},{"values":["UTC"],"name":"Timezone"}]
