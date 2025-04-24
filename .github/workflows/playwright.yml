@@ -77,6 +77,20 @@ jobs:
         mkdir -p allure-results
         cp categories.json allure-results/categories.json
         echo "✅ Categorías copiadas a allure-results"
+    
+    - name: Set Allure Environment Info
+      run: |
+        echo "Browser=Chromium | Firefox" >> ./allure-results/environment.properties
+        echo "Environment=Desarrollo (DEV)" >> ./allure-results/environment.properties
+        echo "Build=1.1.0" >> ./allure-results/environment.properties
+        echo "Platform=Windows" >> ./allure-results/environment.properties
+        echo "Executor=GitHub Actions" >> ./allure-results/environment.properties
+        echo "Tested URL=https://xperiencesdev.masamo.tech/" >> ./allure-results/environment.properties
+        echo "Project Name=K2 Xperiences Automation" >> ./allure-results/environment.properties
+        echo "Author=Michael Rodriguez (QA Analyst)" >> ./allure-results/environment.properties
+        echo "Test Runner=Playwright" >> ./allure-results/environment.properties
+        echo "Node Version=$(node -v)" >> ./allure-results/environment.properties
+        echo "Timezone=$(date +%Z)" >> ./allure-results/environment.properties
 
     - name: Generate Allure Report
       run: npx allure-commandline generate allure-results --clean -o allure-report
@@ -115,6 +129,9 @@ jobs:
         name: allure-report
         path: allure-report
 
+    - name: Clean large attachments
+      run: rm -rf allure-report/data/attachments
+
     - name: Deploy to GitHub Pages
       uses: JamesIves/github-pages-deploy-action@v4
       with:
@@ -122,5 +139,3 @@ jobs:
         branch: gh-pages
         folder: allure-report
         target-folder: .
-        exclude: |
-          data/attachments/**
