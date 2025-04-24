@@ -32,7 +32,7 @@ test("@projects - Validar que la tabla contenga los encabezados correctos", asyn
     await page.goto(`${process.env.BASEURL}/projects`);
     await page.waitForURL("/projects");
     const expectedHeaders = [
-      "IDs", 
+      "ID", 
       "Creation date", 
       "PM name", 
       "Type", 

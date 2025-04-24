@@ -80,13 +80,13 @@ jobs:
     
     - name: Set Allure Environment Info
       run: |
-        echo "Browser=Chromium | Firefox" >> ./allure-results/environment.properties
-        echo "Environment=Desarrollo (DEV)" >> ./allure-results/environment.properties
+        echo "Environment=Desarrollo (DEV) 🚧" >> ./allure-results/environment.properties
         echo "Build= 1.1.0" >> ./allure-results/environment.properties
-        echo "Platform= Windows" >> ./allure-results/environment.properties
+        echo "Platform= Windows 💻" >> ./allure-results/environment.properties
+        echo "Browser=Chromium | Firefox 🌐" >> ./allure-results/environment.properties
         echo "URL= https://xperiencesdev.masamo.tech/" >> ./allure-results/environment.properties
         echo "Project_Name= K2 Xperiences Automation" >> ./allure-results/environment.properties
-        echo "Author= Michael Rodriguez (QA Analyst)" >> ./allure-results/environment.properties
+        echo "Author= Michael Rodriguez (QA Analyst) 👨🏼‍💻" >> ./allure-results/environment.properties
         echo "Test_Runner= Playwright" >> ./allure-results/environment.properties
         echo "Node_Version= $(node -v)" >> ./allure-results/environment.properties
         echo "Timezone= $(date +%Z)" >> ./allure-results/environment.properties
