@@ -31,6 +31,12 @@ export default class BasePage {
     this.submitButton = page.locator('button[type="submit"]');
   }
 
+  async getTotalPagesCount(){
+    const paginationText = await this.page.locator('text=Page 1 of').textContent();
+    const totalPages = parseInt(paginationText?.match(/of (\d+)/)?.[1] || '1');
+    return totalPages;
+  }
+
   async selectDropdownOption(optionText) {
     return this.page.locator('div.flex.cursor-pointer span', { hasText: optionText });
   };

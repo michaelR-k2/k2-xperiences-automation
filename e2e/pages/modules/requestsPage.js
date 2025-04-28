@@ -19,6 +19,8 @@ export default class RequestsPage extends BasePage {
     this.requestMealsButton =  page.locator('label:text("Meals")').locator('..').locator('button');
     this.requestBudgetButton =  page.locator('label:text("Budget")').locator('..').locator('button');
     this.requestSpecialRequestsTextarea =  page.locator('label:text("Special requests")').locator('..').locator('textarea');
+    //Edit Request Button.
+    this.editRequestButton = page.locator('button:has-text("Edit request")');
   }
 
   async openCreatedRequest(){
@@ -58,6 +60,13 @@ export default class RequestsPage extends BasePage {
     await this.requestBudgetButton.click();
     await this.page.locator('div[data-radix-popper-content-wrapper] div', { hasText: new RegExp(`^${requestInfo.budget}$`, 'i') }).click();
     await this.requestSpecialRequestsTextarea.fill(requestInfo.special_request);
+    await this.submitButton.click();
+  };
+
+  async editRequest (requestInfo) {
+    await this.contactInfoEmail.fill(requestInfo.email);
+    await this.generalPhoneInput.first().fill(requestInfo.phone);
+    await this.contactInfoName.fill(`${requestInfo.name} - Edited`);
     await this.submitButton.click();
   }
 }

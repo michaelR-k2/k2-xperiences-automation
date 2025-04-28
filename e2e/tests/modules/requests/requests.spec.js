@@ -70,6 +70,23 @@ test("@requests - Validar el flujo de Creación de una nueva Solicitud (Request)
   );
 });
 
+test("@requests - Validar el flujo de Edición de una Solicitud (Request) Existente", async ({page}) => {
+  await allure.story("Flujo de Edición de una Request/Solicitud");
+  await allure.step(`Step 1 - Ir al formulario de Edición y modificar los campos requeridos`,async () => {
+    await page.goto(`${process.env.BASEURL}/requests`);
+    await page.waitForURL("/requests");
+    await requestsPage.openCreatedRequest();
+    await requestsPage.editRequestButton.click();
+    await requestsPage.editRequest(requestCreationTestData.contactInfo);
+    await page.goto(`${process.env.BASEURL}/requests`);
+    await page.waitForURL("/requests");
+    await requestsPage.openCreatedRequest();
+    await requestsPage.editRequestButton.click();
+    await expect(requestsPage.contactInfoName).toHaveValue(`${requestCreationTestData.contactInfo.name} - Edited`);
+    }
+  );
+});
+
 test("@requests - Validar que la tabla de Solicitudes pueda ser filtrada por ID", async ({page}) => {
   await allure.story("Aplicando filtros en la tabla de Solicitudes");
   await allure.step(`Step 1 - Validación data desplegada en la tabla luego de aplicar un filtro`,async () => {
