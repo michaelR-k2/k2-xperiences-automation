@@ -2,7 +2,7 @@ import { test, expect } from "@playwright/test";
 import { allure } from "allure-playwright";
 import { faker } from "@faker-js/faker";
 import { BasePage, RequestsPage } from "../../../pages";
-import { testRequest } from '../../../support/constants/constants';
+import { testRequest, requestCreationTestData } from '../../../support/constants/constants';
 
 let basePage;
 let requestsPage;
@@ -56,6 +56,20 @@ test("@requests - Validar que la tabla contenga los encabezados correctos", asyn
   );
 });
 
+test("@requests - Validar el flujo de Creación de una nueva Solicitud (Request)", async ({page}) => {
+  await allure.story("Flujo de Creación de una nueva Request/Solicitud");
+  await allure.step(`Step 1 - Ir al formulario de Creación y Llenar los campos requeridos`,async () => {
+    await page.goto(`${process.env.BASEURL}/requests/create`);
+    await page.waitForURL("/requests/create");
+    await requestsPage.createNewRequest(requestCreationTestData);
+    await requestsPage.openCreatedRequest();
+    const specialRequestsSection = page.locator('div.text-sm.font-medium.text-gray-900', { hasText: 'Special requests' });
+    const specialRequestsText = await specialRequestsSection.locator('div.text-sm.text-gray-500').textContent();
+    expect(specialRequestsText).toContain(requestCreationTestData.special_request);
+    }
+  );
+});
+
 test("@requests - Validar que la tabla de Solicitudes pueda ser filtrada por ID", async ({page}) => {
   await allure.story("Aplicando filtros en la tabla de Solicitudes");
   await allure.step(`Step 1 - Validación data desplegada en la tabla luego de aplicar un filtro`,async () => {
@@ -66,7 +80,7 @@ test("@requests - Validar que la tabla de Solicitudes pueda ser filtrada por ID"
   );
 });
 
-test.skip("@requests - Validar que la tabla de Solicitudes pueda ser filtrada por Dia de Creación", async ({page}) => {
+test("@requests - Validar que la tabla de Solicitudes pueda ser filtrada por Dia de Creación", async ({page}) => {
   await allure.story("Aplicando filtros en la tabla de Solicitudes");
   await allure.step(`Step 1 - Validación data desplegada en la tabla luego de aplicar un filtro`,async () => {
     await page.goto(`${process.env.BASEURL}/requests`);

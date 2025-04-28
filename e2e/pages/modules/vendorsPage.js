@@ -7,17 +7,14 @@ export default class VendorsPage extends BasePage {
     this.nameInput = page.locator('input#name');
     this.selectCountryButton = page.locator('div:has(label[for="location"]) > button');
     this.searchCountryInput = page.locator('input[placeholder="Search country..."]');
-    this.dropdownContainer = page.locator('div[data-side="bottom"]');
     this.selectServicesButton = page.locator('div:has(label[for="services"]) > button');
     this.searchServiceInput = page.locator('input[placeholder="Search ..."]');
     this.contactVendorNameInput = page.locator('input[placeholder="Enter Contact vendor name"]');
     this.emailInput = page.locator('input[placeholder="Enter vendor email"]');
-    this.selectPhoneButton = page.locator('div.PhoneInput  > button[aria-haspopup="dialog"]');
     this.phoneInput = page.locator('input[placeholder="Your phone"]');
     this.websiteInput = page.locator('input[placeholder="Enter vendor website"]');
     this.vendorDescription = page.locator('textarea[placeholder="Enter vendor description"]');
     this.vendorNotes = page.locator('textarea#comments');
-    this.submitButton = page.locator('button[type="submit"]');
     this.statusDropdown = page.locator('div select');
     this.vendorsTable = page.locator("table tbody");
     this.allVendors = this.vendorsTable.locator("tr");

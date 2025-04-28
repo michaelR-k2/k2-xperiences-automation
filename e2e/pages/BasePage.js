@@ -3,6 +3,7 @@ import { expect } from '@playwright/test';
 export default class BasePage {
   constructor(page) {
     this.page = page;
+    //Navigation - Left side Menu 
     this.dashboardLink = page.locator('nav a[href*="/dashboard"]');
     this.requestsLink = page.locator('nav a[href*="/requests"]');
     this.projectsLink = page.locator('nav a[href*="/projects"]');
@@ -11,9 +12,42 @@ export default class BasePage {
     this.tripUsersLink = page.locator('nav a[href*="/trip-users"]');
     this.filesLink = page.locator('nav a[href*="/files"]');
     this.tableHeaders = page.locator("table thead tr th div span");
+    //General Table Locators.
     this.table = page.locator("table tbody");
     this.alltableItems = this.table.locator("tr");
+    //Contact Phone Locators.
+    this.selectPhoneButton = page.locator('div.PhoneInput  > button[aria-haspopup="dialog"]');
+    this.generalPhoneInput = page.locator('input[placeholder="Enter contact phone"]');
+    //General Contact Info Locators.
+    this.departmentSelect = page.locator('button:has-text("Select Department")');
+    this.contactInfoEmail = page.locator('input[placeholder="Enter the contact email"]');
+    this.contactInfoName = page.locator('input[placeholder="Contact name"]');
+    //Projects Contact Info Locators.
+    this.projectContactInfoEmail = page.locator('input[placeholder="Project contact email"]');
+    this.ProjectContactInfoName = page.locator('input[placeholder="Project contact name"]');
+    //Dropdown inputs general locators.
+    this.dropdownContainer = page.locator('div[data-side="bottom"]');
+    //General Submit Button
+    this.submitButton = page.locator('button[type="submit"]');
   }
+
+  async selectDropdownOption(optionText) {
+    return this.page.locator('div.flex.cursor-pointer span', { hasText: optionText });
+  };
+
+  async fillContactInfoSection(contactData){
+    await this.departmentSelect.click();
+    await (await this.selectDropdownOption(contactData.department)).click();
+    await this.contactInfoEmail.fill(contactData.email);
+    await this.generalPhoneInput.first().fill(contactData.phone);
+    await this.contactInfoName.fill(contactData.name);
+  };
+
+  async fillProjectsContactInfoSection(projectContactData){
+    await this.projectContactInfoEmail.fill(projectContactData.email);
+    await this.generalPhoneInput.nth(1).fill(projectContactData.phone);
+    await this.ProjectContactInfoName.fill(projectContactData.name);
+  };
 
   async getCurrentUrl() {
     return this.page.url();
@@ -51,7 +85,7 @@ export default class BasePage {
   
       await this.page.waitForTimeout(1000);
     }
-    await this.page.locator(`button:has-text("${day}")`).first().click();
+    await this.page.locator(`button`).filter({ hasText: new RegExp(`^${day.toString()}$`) }).first().click();
     await this.page.waitForTimeout(1000);
     await this.page.locator('body').click();
     const matchingCells = await this.page.locator(`tbody tr td:nth-child(${columnIndex + 1})`).allInnerTexts();
