@@ -126,7 +126,7 @@ export const testTripUser = {
   address: "cra 23 122 89",
   country: "Colombia",
   phone: "+573168293576",
-  birthDate: "07/01/2020",
+  birthDate: "12/04/2025",
 };
 
 export const testExperience = {
