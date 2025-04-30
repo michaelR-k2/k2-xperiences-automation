@@ -44,7 +44,7 @@ test("@vendors - Validar que la tabla contenga los encabezados correctos", async
   await allure.step(`Step 1 - Validación data desplegada en la tabla`,async () => {
     await page.goto(`${process.env.BASEURL}/vendors`);
     await page.waitForURL("/vendors");
-    const expectedHeaders = ["ID", "Vendor", "Created At", "Location", "Services", "Email", "Phone", "Website", "Status"];
+    const expectedHeaders = ["ID", "Vendor", "Added on", "Location", "Services", "Email", "Phone", "Website", "Status"];
     const actualHeaders = await vendorsPage.getTableHeaders();
     expect(actualHeaders).toEqual(expectedHeaders);
     }
