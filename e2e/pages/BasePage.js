@@ -29,12 +29,52 @@ export default class BasePage {
     this.dropdownContainer = page.locator('div[data-side="bottom"]');
     //General Submit Button
     this.submitButton = page.locator('button[type="submit"]');
+    //Pagination
+    this.rowsNumberSelector = page.getByText('Rows per page').locator('..').locator('button[role="combobox"]');
   }
 
   async getTotalPagesCount(){
     const paginationText = await this.page.locator('text=Page 1 of').textContent();
     const totalPages = parseInt(paginationText?.match(/of (\d+)/)?.[1] || '1');
     return totalPages;
+  }
+
+  async changeRowsPerPage(count) {
+    await this.rowsNumberSelector.click();
+    await this.page.getByRole('option', { name: `${count}` }).click();
+    await this.page.waitForTimeout(1500);
+  }
+
+  async goToNextPage() {
+    const nextButton = this.page.getByRole('button', { name: 'Go to next page' });
+    if (await nextButton.isEnabled()) {
+      nextButton.click()
+      await this.page.waitForTimeout(200);
+      nextButton.click();
+    }
+  }
+  
+  async goToPreviousPage() {
+    const prevButton = this.page.getByRole('button', { name: 'Go to previous page' });
+    if (await prevButton.isEnabled()) {
+      prevButton.click();
+    }
+  }
+  
+  async goToFirstPage() {
+    const firstButton = this.page.getByRole('button', { name: 'Go to first page' });
+    if (await firstButton.isEnabled()) {
+      firstButton.click()
+    }
+  }
+  
+  async goToLastPage() {
+    const lastButton = this.page.getByRole('button', { name: 'Go to last page' });
+    if (await lastButton.isEnabled()) {
+      lastButton.click()
+      await this.page.waitForTimeout(200);
+      lastButton.click();
+    }
   }
 
   async selectDropdownOption(optionText) {
@@ -115,7 +155,7 @@ export default class BasePage {
     await filterInput.click();
     const regex = new RegExp(`^${valueToFilter.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}$`);
     await this.page.locator('div[data-radix-popper-content-wrapper]').getByText(regex).click();
-    await this.page.waitForTimeout(1000); 
+    await this.page.waitForTimeout(2500); 
     const matchingCells = await this.page.locator(`tbody tr td:nth-child(${columnIndex + 1})`).allInnerTexts();
 
     const found = matchingCells.some(text => text.trim().includes(valueToFilter));

@@ -58,6 +58,90 @@ test("@projects - Validar que la tabla contenga los encabezados correctos", asyn
   );
 });
 
+test('@projects - Validar que el contador de paginas se actualice al modificar el numero de elementos mostrados por pagina', async ({ page }) => {
+  await allure.story("Pruebas de paginación");
+  await allure.step(`Step 1 - Cambiar el número de Elementos desplegados por pagina y validar el contador de Paginas`,async () => {
+    await page.goto(`${process.env.BASEURL}/projects`);
+    await page.waitForURL("/projects");
+    const originalTotalPages = await projectsPage.getTotalPagesCount();
+    await projectsPage.changeRowsPerPage(50);
+    const updatedTotalPages = await projectsPage.getTotalPagesCount();
+    expect(updatedTotalPages).toBeLessThanOrEqual(originalTotalPages);
+  }
+);
+});
+
+test('@projects - Validar que se pueda navegar hasta la ultima pagina', async ({ page }) => {
+await allure.story("Pruebas de paginación");
+await allure.step(`Step 1 - hacer click en el boton de ir a la ultima pagina validar el contador de Paginas`, async () => {
+  await page.goto(`${process.env.BASEURL}/projects`);
+  await page.waitForURL("/projects");
+  const totalPages = await projectsPage.getTotalPagesCount();
+  if (totalPages > 1) {
+    await projectsPage.goToLastPage();
+    await page.waitForFunction(
+      (expectedTotal) => {
+        const match = document.body.innerText.match(/Page (\d+) of/);
+        return match && parseInt(match[1]) === expectedTotal;
+      },
+      totalPages
+    );
+    const paginationText = await page.locator('text=Page').nth(1).textContent();
+    expect(paginationText).toContain(`Page ${totalPages} of`);
+  }
+});
+});
+
+test('@projects - Validar que se pueda navegar a la siguiente pagina', async ({ page }) => {
+await allure.story("Pruebas de paginación");
+await allure.step(`Step 1 - Hacer click en el boton de ir a la siguiente pagina y validar el contador de Paginas`, async () => {
+  await page.goto(`${process.env.BASEURL}/projects`);
+  await page.waitForURL("/projects");
+  const totalPages = await projectsPage.getTotalPagesCount();
+  if (totalPages > 1) {
+    await projectsPage.goToNextPage();
+    await page.waitForFunction(
+      (expectedTotal) => {
+        const match = document.body.innerText.match(/Page (\d+) of/);
+        return match && parseInt(match[1]) === expectedTotal;
+      },
+      2
+    );
+    const paginationText = await page.locator('text=Page').nth(1).textContent();
+    expect(paginationText).toContain(`Page 2 of`);
+    }
+});
+});
+
+test('@projects - Validar que se pueda navegar hasta la ultima pagina y de regreso a la primera', async ({ page }) => {
+await allure.story("Pruebas de paginación");
+await allure.step(`Step 1 - hacer click en el boton de ir a la ultima pagina validar el contador de Paginas`, async () => {
+  await page.goto(`${process.env.BASEURL}/projects`);
+  await page.waitForURL("/projects");
+  const totalPages = await projectsPage.getTotalPagesCount();
+  if (totalPages > 1) {
+    await projectsPage.goToLastPage();
+    await page.waitForFunction(
+      (expectedTotal) => {
+        const match = document.body.innerText.match(/Page (\d+) of/);
+        return match && parseInt(match[1]) === expectedTotal;
+      },
+      totalPages
+    );
+    expect(await page.locator('text=Page').nth(1).textContent()).toContain(`Page ${totalPages} of`);
+    await projectsPage.goToFirstPage();
+    await page.waitForFunction(
+      (expectedTotal) => {
+        const match = document.body.innerText.match(/Page (\d+) of/);
+        return match && parseInt(match[1]) === expectedTotal;
+      },
+      1
+    );
+    expect(await page.locator('text=Page').nth(1).textContent()).toContain(`Page 1 of`);
+  }
+});
+});
+
 test("@projects - Validar que la tabla de Proyectos pueda ser filtrada por ID", async ({page}) => {
   await allure.story("Aplicando filtros en la tabla de Proyectos");
   await allure.step(`Step 1 - Validación data desplegada en la tabla luego de aplicar un filtro`,async () => {
