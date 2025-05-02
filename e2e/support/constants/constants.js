@@ -118,6 +118,18 @@ export const testVendor = {
   website: "https://cumbersome-petticoat.name",
 };
 
+export const testHost = {
+  id: "70",
+  name: "Vendor Test - Edit created Host",
+  location: "Chile",
+  services: "Host",
+  email: "testEmail_Host@k2con.com",
+  createdAt: "13/04/2025",
+  status: generalStatuses[Math.floor(Math.random() * generalStatuses.length)],
+  phone: "+573137985652",
+  website: "https://cumbersome-petticoat.name",
+};
+
 export const testTripUser = {
   id: "8",
   name: "Lisseth Moreno",

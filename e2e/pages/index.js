@@ -11,3 +11,4 @@ export { default as ProjectsPage } from './modules/projectsPage';
 export { default as RequestsPage } from './modules/requestsPage';
 export { default as TripUsersPage } from './modules/trip_usersPage';
 export { default as VendorsPage } from './modules/vendorsPage';
+export { default as HostsPage } from './modules/hostsPage';
