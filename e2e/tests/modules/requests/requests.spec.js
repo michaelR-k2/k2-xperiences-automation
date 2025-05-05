@@ -1,11 +1,12 @@
 import { test, expect } from "@playwright/test";
 import { allure } from "allure-playwright";
 import { faker } from "@faker-js/faker";
-import { BasePage, RequestsPage } from "../../../pages";
+import { BasePage, RequestsPage, ProjectsPage } from "../../../pages";
 import { testRequest, requestCreationTestData } from '../../../support/constants/constants';
 
 let basePage;
 let requestsPage;
+let projectsPage;
 
 test.beforeEach(async ({ page, context }) => {
   await allure.epic("Requests - Casos de prueba relacionados a la vista de Requerimientos");
@@ -13,6 +14,7 @@ test.beforeEach(async ({ page, context }) => {
   await allure.tags("e2e", "requests");
   basePage = new BasePage(page);
   requestsPage = new RequestsPage(page);
+  projectsPage = new ProjectsPage(page);
 });
 
 test("@requests - Validar que la tabla  de Solicitudes tenga al menos un registro", async ({page}) => {
@@ -167,6 +169,31 @@ test("@requests - Validar el flujo de Edición de una Solicitud (Request) Existe
     await requestsPage.openCreatedRequest();
     await requestsPage.editRequestButton.click();
     await expect(requestsPage.contactInfoName).toHaveValue(`${requestCreationTestData.contactInfo.name} - Edited`);
+    }
+  );
+});
+
+test("@requests - Validar que al cambiar el estado de un Request a Aprobado, esté sea visible en la lista de Proyectos", async ({page}) => {
+  await allure.story("Validación de Request Aprobados en la vista de Proyectos");
+  await allure.step(`Step 1 - Cambiar el estado del request a aprobado`,async () => {
+    await page.goto(`${process.env.BASEURL}/requests`);
+    await page.waitForURL("/requests");
+    const  requestID = await requestsPage.getFirstIdFromTable(2);
+    test.info().annotations.push({ type: 'requestID', description: requestID });
+    await requestsPage.openCreatedRequest();
+    await requestsPage.editRequestButton.click();
+    await requestsPage.statusButton.click();
+    await page.locator('div[data-radix-popper-content-wrapper] div', { hasText: 'Accepted' }).first().click();
+    await requestsPage.submitButton.click();
+    await page.waitForTimeout(1000);
+    }
+  );
+  await allure.step(`Step 2 - Validar el ID del primer elemento de la vista de proyectos`,async () => {
+    await page.goto(`${process.env.BASEURL}/projects`);
+    await page.waitForURL("/projects");
+    const requestID = test.info().annotations.find(a => a.type === 'requestID')?.description;
+    const projectsID = await projectsPage.getFirstIdFromTable(2);
+    expect(projectsID).toBe(requestID);
     }
   );
 });

@@ -33,17 +33,23 @@ export default class BasePage {
     this.rowsNumberSelector = page.getByText('Rows per page').locator('..').locator('button[role="combobox"]');
   }
 
+  async getFirstIdFromTable(idColumnIndex) {
+    const firstIdCell = this.page.locator(`table tbody tr:first-child td:nth-child(${idColumnIndex})`);
+    const idText = await firstIdCell.innerText();
+    return idText.trim();
+  };
+
   async getTotalPagesCount(){
     const paginationText = await this.page.locator('text=Page 1 of').textContent();
     const totalPages = parseInt(paginationText?.match(/of (\d+)/)?.[1] || '1');
     return totalPages;
-  }
+  };
 
   async changeRowsPerPage(count) {
     await this.rowsNumberSelector.click();
     await this.page.getByRole('option', { name: `${count}` }).click();
     await this.page.waitForTimeout(1500);
-  }
+  };
 
   async goToNextPage() {
     const nextButton = this.page.getByRole('button', { name: 'Go to next page' });
@@ -52,21 +58,21 @@ export default class BasePage {
       await this.page.waitForTimeout(200);
       nextButton.click();
     }
-  }
+  };
   
   async goToPreviousPage() {
     const prevButton = this.page.getByRole('button', { name: 'Go to previous page' });
     if (await prevButton.isEnabled()) {
       prevButton.click();
     }
-  }
+  };
   
   async goToFirstPage() {
     const firstButton = this.page.getByRole('button', { name: 'Go to first page' });
     if (await firstButton.isEnabled()) {
       firstButton.click()
     }
-  }
+  };
   
   async goToLastPage() {
     const lastButton = this.page.getByRole('button', { name: 'Go to last page' });
@@ -75,7 +81,7 @@ export default class BasePage {
       await this.page.waitForTimeout(200);
       lastButton.click();
     }
-  }
+  };
 
   async selectDropdownOption(optionText) {
     return this.page.locator('div.flex.cursor-pointer span', { hasText: optionText });
@@ -97,17 +103,17 @@ export default class BasePage {
 
   async getCurrentUrl() {
     return this.page.url();
-  }
+  };
 
   async getTableHeaders() {
     await this.tableHeaders.first().waitFor({ state: "visible" });
     return await this.tableHeaders.allTextContents();
-  }
+  };
 
   async getTableRowsCount() {
     await this.page.waitForSelector("table tbody tr", {state: "attached"});
     return await this.alltableItems.count(); 
-  }
+  };
 
   async filterByDateAndAssert(columnIndex, dateString) {
     const [day, month, year] = dateString.split('/').map(Number);
