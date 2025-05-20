@@ -12,8 +12,9 @@ export default class RequestsPage extends BasePage {
     this.searchInput = page.locator('input[placeholder="Search ..."]');
     this.requestDepartureCountryInput = page.locator('label:text("Departure country")').locator('..').locator('input');
     this.requestDestinationCountryInput = page.locator('label:text("Destination country")').locator('..').locator('input');
-    this.requestTravelStartDateInput = page.locator('label:text("Estimate travel start date")').locator('..').locator('input');
-    this.requestTravelEndDateInput = page.locator('label:text("Estimate travel end date")').locator('..').locator('input');
+    this.requestTravelStartDateInput = page.locator('input[placeholder="Estimate travel start date"]');
+    this.requestTravelEndDateInput = page.locator('input[placeholder="Estimate travel end date"]');
+    this.datepicker = page.locator('.react-datepicker[role="dialog"]');
     this.requestPackagesButton =  page.locator('label:text("Packages")').locator('..').locator('button');
     this.requestLengthButton =  page.locator('label:text("Length")').locator('..').locator('button');
     this.requestMealsButton =  page.locator('label:text("Meals")').locator('..').locator('button');
@@ -45,10 +46,13 @@ export default class RequestsPage extends BasePage {
     await this.page.click('body'); 
     await this.requestDepartureCountryInput.fill(requestInfo.departure_country); 
     await this.requestDepartureCountryInput.press('Enter');
+    await this.page.click('body'); 
     await this.requestDestinationCountryInput.fill(requestInfo.destination_country);
     await this.requestDestinationCountryInput.press('Enter');
-    await this.requestTravelStartDateInput.fill(requestInfo.estimate_start_date);
-    await this.requestTravelEndDateInput.fill(requestInfo.estimate_end_date);
+    await this.page.click('body'); 
+    await this.requestTravelEndDateInput.click();
+    await expect(this.datepicker).toBeVisible();
+    await this.page.click('body');
     await this.requestPackagesButton.click();
     await this.page.locator('div[data-radix-popper-content-wrapper] div', { hasText: new RegExp(`^${requestInfo.packages}$`, 'i') }).click();
     await this.requestLengthButton.click();

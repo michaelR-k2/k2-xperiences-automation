@@ -164,7 +164,7 @@ test("@vendors - Verificación del flujo de Edición de un Proveedor", async ({ 
     await page.goto(`${process.env.BASEURL}/vendors`);
     await page.waitForURL("/vendors");
     await vendorsPage.filterTableByColumnAndAssert(2, testVendor.name);
-    const vendorId = await vendorsPage.openEditVendorByName('Vendor Test - Edit created Vendor');
+    const vendorId = await vendorsPage.openEditVendorByName(testVendor.name);
     await page.goto(`${process.env.BASEURL}/vendors/${vendorId}/edit`);
     await page.waitForURL(`/vendors/${vendorId}/edit`);
     await vendorsPage.editVendor(vendorData);

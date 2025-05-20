@@ -1,3 +1,4 @@
+// constantes de selectores, dorpdowns
 const generalStatuses = ["Active", "Inactive"];
 const requestsStatuses = ["Accepted", "Contacted", "Received", "Discarded"];
 const projectsStatuses = ["Completed", "Started", "In Progress"];
@@ -29,36 +30,6 @@ const travelLength = [
   "5 - 6 nights",
   "Other"
 ];
-
-function getRandomDateLast30Days() {
-  const today = new Date();
-  const pastDate = new Date();
-  pastDate.setDate(today.getDate() - 30);
-
-  const randomTime = pastDate.getTime() + Math.random() * (today.getTime() - pastDate.getTime());
-  const randomDate = new Date(randomTime);
-
-  const day = String(randomDate.getDate()).padStart(2, '0');
-  const month = String(randomDate.getMonth() + 1).padStart(2, '0');
-  const year = randomDate.getFullYear();
-
-  return `${year}-${month}-${day}`;
-};
-
-function getTodayFormatted() {
-  const today = new Date();
-
-  const day = String(today.getDate()).padStart(2, '0');
-  const month = String(today.getMonth() + 1).padStart(2, '0');
-  const year = today.getFullYear();
-
-  return `${year}-${month}-${day}`;
-};
-
-function escapeRegExp(string) {
-  return string.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
-};
-
 export const countries = [
   "Argentina",
   "Bahamas",
@@ -89,7 +60,6 @@ export const countries = [
   "Uruguay",
   "Venezuela",
 ];
-
 export const services = [
   "Host",
   "Flight",
@@ -105,55 +75,6 @@ export const services = [
   "Logistics",
   "Others",
 ];
-
-export const testVendor = {
-  id: "5",
-  name: "Vendor Test - Edit created Vendor",
-  location: "Colombia",
-  services: "Photography and Video",
-  email: "testEmail@k2con.com",
-  createdAt: "09/04/2025",
-  status: generalStatuses[Math.floor(Math.random() * generalStatuses.length)],
-  phone: "+573137985652",
-  website: "https://cumbersome-petticoat.name",
-};
-
-export const testHost = {
-  id: "70",
-  name: "Vendor Test - Edit created Host",
-  location: "Chile",
-  services: "Host",
-  email: "testEmail_Host@k2con.com",
-  createdAt: "13/04/2025",
-  status: generalStatuses[Math.floor(Math.random() * generalStatuses.length)],
-  phone: "+573137985652",
-  website: "https://cumbersome-petticoat.name",
-};
-
-export const testTripUser = {
-  id: "8",
-  name: "Lisseth Moreno",
-  email: "lisshahimor_09@hotmail.com",
-  identification: "AD939498",
-  address: "cra 23 122 89",
-  country: "Colombia",
-  phone: "+573168293576",
-  birthDate: "12/04/2025",
-};
-
-export const testExperience = {
-  id: "64",
-  name: "Experiencia de Prueba para pruebas Automatizadas",
-  status: generalStatuses[Math.floor(Math.random() * generalStatuses.length)],
-  createdAt: "02/04/2025",
-  featured: "true",
-  signature: "false",
-  destination: "Argentina",
-  duration: "3 - 4",
-  packages: "1 - 5",
-  startingAt: "$12,500.00",
-};
-
 export const itinerarios = [
   {
     nombre: "Aventura en Costa Rica",
@@ -242,24 +163,103 @@ export const itinerarios = [
   },
 ];
 
+// Funciones de transformación de Fechas 
+function getRandomDateLast30Days() {
+  const today = new Date();
+  const pastDate = new Date();
+  pastDate.setDate(today.getDate() - 30);
+
+  const randomTime = pastDate.getTime() + Math.random() * (today.getTime() - pastDate.getTime());
+  const randomDate = new Date(randomTime);
+
+  const day = String(randomDate.getDate()).padStart(2, '0');
+  const month = String(randomDate.getMonth() + 1).padStart(2, '0');
+  const year = randomDate.getFullYear();
+
+  return `${year}-${month}-${day}`;
+};
+
+function getTodayFormatted() {
+  const today = new Date();
+
+  const day = String(today.getDate()).padStart(2, '0');
+  const month = String(today.getMonth() + 1).padStart(2, '0');
+  const year = today.getFullYear();
+
+  return `${year}-${month}-${day}`;
+};
+
+function escapeRegExp(string) {
+  return string.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+};
+
+// Datos Creados manualmente para pruebas
+export const testVendor = {
+  id: "50",
+  name: "Kinoko Club Concierge",
+  location: "Tokyo, Japan",
+  services: "Transportation",
+  email: "francoisgallon@kinoko-group.co.jp",
+  createdAt: "12/05/2025",
+  status: "Active",
+  phone: "+81368684007",
+  website: "http://kinoko-group.co.jp",
+};
+
+export const testHost = {
+  id: "45",
+  name: "Angelica Rodriguez",
+  location: "Japan",
+  services: "Host",
+  email: "it@k2con.com",
+  createdAt: "21/04/2025",
+  status: "Active",
+  phone: "+817028380341",
+  website: "https://www.despegar.com.co/",
+};
+
+export const testTripUser = {
+  id: "1",
+  name: "Michael Rodriguez",
+  email: "mrios@k2con.com",
+  identification: "1053859544",
+  address: "Carrera 34 - 98A38",
+  country: "Colombia",
+  phone: "+573137906289",
+  birthDate: "20/05/2025",
+};
+
+export const testExperience = {
+  id: "17",
+  name: "Tokyo Elite: A Luxury Cultural Escape",
+  status: "Active",
+  createdAt: "03/04/2025",
+  featured: "true",
+  signature: "false",
+  destination: "Japan",
+  duration: "5 - 6",
+  packages: "1 - 5",
+  startingAt: "$18,850.00",
+};
+
 export const testRequest = {
-  id: `${Math.floor(Math.random() * 41) + 1}`,
-  createdAt: "22/04/2025",
-  requestChannel: "Platform",
+  id: `${Math.floor(Math.random() * 4) + 1}`,
+  createdAt: "20/05/2025",
+  requestChannel: "Direct",
   type: "Xperiences",
-  experience: "Madrid Experience: Art, Wine & Soccer Passion",
-  departure: "Colombia",
-  destination: "Madrid, Spain",
-  packages: "5",
-  lenght: "2 - 3",
+  experience: "Customized Experience",
+  departure: "Bahamas",
+  destination: "Brazil",
+  packages: "4",
+  lenght: "Staycation",
   meals: "All-inclusive",
-  approach: "Cultural",
-  budget: "10000",
-  department: "Marketing",
-  contactName: "Dunn and Clay LLC",
-  email: "Andres.villarreta@k2con.com",
-  phone: "+573163926785",
-  status: requestsStatuses[Math.floor(Math.random() * requestsStatuses.length)],
+  approach: "Gastronomic",
+  budget: "20000",
+  department: "Product",
+  contactName: "Michael Rodriguez",
+  email: "it@k2con.com",
+  phone: "+573137906289",
+  status: "Accepted",
 };
 
 export const contactInfo = {
@@ -272,6 +272,29 @@ export const contactInfo = {
   name: "QA Automation Test Area",
 };
 
+export const testProject = {
+  id: "3",
+  createdAt: "20/05/2025",
+  pmName: "Michael Rodriguez",
+  type: "Xperiences",
+  projectName: "Test de Prueba de creación de un proyecto",
+  experience: "Customized Experience",
+  departure: "Bahamas",
+  destination: "Brazil",
+  packages: "4",
+  lenght: "Staycation",
+  meals: "All-inclusive",
+  approach: "Gastronomic",
+  budget: "15000",
+  department: "Product",
+  contactName: "Michael Rodriguez",
+  mcPerson: "it@k2con.com",
+  phone: "+573137906289",
+  poQuantity: "1",
+  status: "Completed",
+};
+
+// Datos para creación de Formularios
 export const requestCreationTestData = {
   contactInfo: contactInfo,
   status: "Received",
@@ -289,24 +312,4 @@ export const requestCreationTestData = {
   special_request: "Hola esta es una Request de Prueba creada automaticamente por la suite de Playwright, es usada para validar flujos de Creación y edición."
 };
 
-export const testProject = {
-  id: "39",
-  createdAt: "12/03/2025",
-  pmName: "Lisseth",
-  type: "Client",
-  projectName: "Ejemplo Proyecto",
-  experience: "Viva Las Vegas: A Sin City Spectacle for All",
-  departure: "Brazil",
-  destination: "Madrid, Spain",
-  packages: "8",
-  lenght: "5 - 6",
-  meals: "Breakfast",
-  approach: "Beach",
-  budget: "20000",
-  department: "Marketing",
-  contactName: "Lisseth Moreno",
-  mcPerson: "lisseth@k2con.com",
-  phone: "+573163926785",
-  poQuantity: "2",
-  status: projectsStatuses[Math.floor(Math.random() * projectsStatuses.length)],
-};
+
