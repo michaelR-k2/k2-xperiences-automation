@@ -84,6 +84,10 @@ export default class BasePage {
   };
 
   async selectDropdownOption(optionText) {
+    return this.page.locator('div[data-radix-popper-content-wrapper]', { hasText: optionText });
+  };
+
+  async selectSecundaryDropdownOption(optionText) {
     return this.page.locator('div.flex.cursor-pointer span', { hasText: optionText });
   };
 

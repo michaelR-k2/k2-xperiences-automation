@@ -37,7 +37,7 @@ export default class RequestsPage extends BasePage {
     await this.statusButton.click();
     await this.page.locator('div[data-radix-popper-content-wrapper] div', { hasText: new RegExp(`^${requestInfo.status}$`, 'i') }).click();
     await this.requestChannelButton.click();
-    await (await this.selectDropdownOption(requestInfo.request_channel)).click();
+    await (await this.selectSecundaryDropdownOption(requestInfo.request_channel)).click();
     await this.requestTypeButton.click();
     await this.page.locator('div[data-radix-popper-content-wrapper] div', { hasText: new RegExp(`^${requestInfo.type}$`, 'i') }).click();
     await this.requestTravelApproachButton.click();

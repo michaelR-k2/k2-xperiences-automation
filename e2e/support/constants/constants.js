@@ -10,18 +10,13 @@ const contactInfoDepartments = [
   "Other",
 ];
 const requestsTravelApproaches = [
-  "Adventure",
-  "Art",
   "Beach",
   "Cultural",
-  "Educational",
-  "Eco-Tourism",
-  "Event",
+  "Events",
   "Gastronomic",
   "Luxury",
   "Nature",
   "Sports",
-  "Urban",
   "Wellness",
 ];
 const travelLength = [
