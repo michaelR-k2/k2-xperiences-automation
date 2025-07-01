@@ -100,7 +100,7 @@ test('@vendors - Validar que se pueda navegar a la siguiente pagina', async ({ p
         },
         2
       );
-      const paginationText = await page.locator('text=Page').nth(1).textContent();
+      const paginationText = await page.locator('text=Page').nth(2).textContent();
       expect(paginationText).toContain(`Page 2 of`);
       }
   });

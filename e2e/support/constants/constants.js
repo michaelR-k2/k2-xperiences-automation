@@ -190,27 +190,27 @@ function escapeRegExp(string) {
 
 // Datos Creados manualmente para pruebas
 export const testVendor = {
-  id: "50",
-  name: "Kinoko Club Concierge",
-  location: "Tokyo, Japan",
+  id: "98",
+  name: "Sydney Express Transfers",
+  location: "Sidney, Australia",
   services: "Transportation",
-  email: "francoisgallon@kinoko-group.co.jp",
-  createdAt: "12/05/2025",
+  email: "mrios@k2con.com",
+  createdAt: "30/06/2025",
   status: "Active",
   phone: "+81368684007",
-  website: "http://kinoko-group.co.jp",
+  website: "https://apt-fold.name",
 };
 
 export const testHost = {
-  id: "45",
-  name: "Angelica Rodriguez",
-  location: "Japan",
+  id: "97",
+  name: "Harbour Luxe All Inclusive Resort",
+  location: "Sidney, Australia",
   services: "Host",
-  email: "it@k2con.com",
-  createdAt: "21/04/2025",
+  email: "mrios@k2con.com",
+  createdAt: "30/06/2025",
   status: "Active",
-  phone: "+817028380341",
-  website: "https://www.despegar.com.co/",
+  phone: "+573137906289",
+  website: "https://qualified-possession.org",
 };
 
 export const testTripUser = {
@@ -234,7 +234,7 @@ export const testExperience = {
   destination: "Japan",
   duration: "5 - 6",
   packages: "1 - 5",
-  startingAt: "$18,850.00",
+  startingAt: "$22,000.00",
 };
 
 export const testRequest = {
@@ -268,22 +268,22 @@ export const contactInfo = {
 };
 
 export const testProject = {
-  id: "3",
-  createdAt: "20/05/2025",
+  id: "54",
+  createdAt: "30/06/2025",
   pmName: "Michael Rodriguez",
-  type: "Xperiences",
-  projectName: "Test de Prueba de creación de un proyecto",
-  experience: "Customized Experience",
-  departure: "Bahamas",
-  destination: "Brazil",
-  packages: "4",
-  lenght: "Staycation",
+  type: "Client",
+  projectName: "Adventure Awaits: Disney Edition",
+  experience: "Adventure Awaits: Disney Edition",
+  departure: "Colombia",
+  destination: "Orlando, Florida, United States",
+  packages: "2",
+  lenght: "5 - 6",
   meals: "All-inclusive",
   approach: "Gastronomic",
-  budget: "15000",
+  budget: "20000",
   department: "Product",
   contactName: "Michael Rodriguez",
-  mcPerson: "it@k2con.com",
+  mcPerson: "mrios@k2con.com",
   phone: "+573137906289",
   poQuantity: "1",
   status: "Completed",
