@@ -28,6 +28,8 @@
     "allure-playwright": "^3.2.1"
   },
   "dependencies": {
-    "dotenv": "^16.4.7"
+    "dotenv": "^16.4.7",
+    "imap-simple": "^5.1.0",
+    "mailparser": "^3.7.3"
   }
 }

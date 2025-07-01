@@ -13,6 +13,9 @@ export default class LoginPage extends BasePage {
   async goToLoginPage() {
     await this.page.goto(`${process.env.BASEURL}/login`);
   }
+    async goToClientLoginPage() {
+    await this.page.goto(`${process.env.BASEURL}/client/login`);
+  }
   async loginToXperiences() {
     await this.emailInput.fill(process.env.USER_EMAIL);
     await this.passwordInput.fill(process.env.USER_PASSWORD);

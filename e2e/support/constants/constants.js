@@ -214,7 +214,7 @@ export const testHost = {
 };
 
 export const testTripUser = {
-  id: "1",
+  id: "7",
   name: "Michael Rodriguez",
   email: "mrios@k2con.com",
   identification: "1053859544",
@@ -239,12 +239,12 @@ export const testExperience = {
 
 export const testRequest = {
   id: `${Math.floor(Math.random() * 4) + 1}`,
-  createdAt: "20/05/2025",
-  requestChannel: "Direct",
+  createdAt: "30/06/2025",
+  requestChannel: "Platform",
   type: "Xperiences",
-  experience: "Customized Experience",
-  departure: "Bahamas",
-  destination: "Brazil",
+  experience: "Wild Australia Event Experience",
+  departure: "Colombia",
+  destination: "Sidney, Australia",
   packages: "4",
   lenght: "Staycation",
   meals: "All-inclusive",
@@ -252,7 +252,7 @@ export const testRequest = {
   budget: "20000",
   department: "Product",
   contactName: "Michael Rodriguez",
-  email: "it@k2con.com",
+  email: "qa_test_email@k2con.com",
   phone: "+573137906289",
   status: "Accepted",
 };
